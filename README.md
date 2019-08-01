@@ -1,3 +1,3 @@
 # sosukesuzuki.github.io
 
-sosukesuzuki's website.
+https://sosukesuzuki.github.io
