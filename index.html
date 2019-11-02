@@ -7,31 +7,41 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" >
     <style>
-      body {
-        font-family: 'Noto Sans JP', sans-serif;
-        width: 100vw;
-        display: flex;
-      }
-      .root {
-        padding: 20px;
-        line-height: 24px;
-        margin: 0 auto;
-        max-width: 800px;
-      }
-      .root .logo {
-        width: 100px;
-        height: 100px;
-      }
-      .root a {
-        color: #228be6;
-        font-weight: bold;
+      a {
+        color: blue;
         text-decoration: none;
       }
-      .root a:hover {
+      a:hover {
         text-decoration: underline;
       }
-      .root ul li {
-        margin-bottom: 10px;
+      header .body {
+        margin: 0 auto;
+        display: flex;
+        width: 800px;
+        justify-content: space-between;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 60px;
+        display: flex;
+      }
+      header h1 {
+        margin: 0;
+        line-height: 60px;
+        padding-right: 50px;
+      }
+      header ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+      }
+      header ul li {
+        height: 60px;
+        line-height: 60px;
+        padding-right: 10px;
       }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -45,61 +55,16 @@
     </script>
   </head>
   <body>
-    <main class="root">
-      <h1>鈴木 颯介(Sosuke Suzuki)</h1>
-      <img src="https://avatars0.githubusercontent.com/u/14838850?s=460&v=4" class="logo" />
-      <p>鈴木颯介です。フロントエンドエンジニアで、<a href="https://www.coins.tsukuba.ac.jp" target="_blank">筑波大学</a>の学生です.<br/> JavaScript と TypeScript 、そして OSS が大好きです。</p>
-      <p>I'm Sosuke Suzuki, a frontend developer located in Tokyo, and also student at <a href="https://www.coins.tsukuba.ac.jp/en/" target="_blank">Tsukuba University</a>.<br/> Loves JavaScript/TypeScript and OSS.</p>
-      <section>
-        <h2>Accounts</h2>
-        <ul>
-          <li>
-            <a href="https://github.com/sosukesuzuki" target="_blank">
-              GitHub(sosukesuzuki)
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/__sosukesuzuki" target="_blank">
-              Twitter(__sosukesuzuki)
-            </a>
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h2>OSS</h2>
-        <ul>
-          <li>
-            <a href="https://github.com/BoostIO/Boostnote">Boostnote</a>(maintainer): A markdown editor for developers on Mac, Windows and Linux.
-          </li>
-          <li>
-            <a href="https://github.com/prettier/prettier">Prettier</a>(comitter): Opinionated code formatter.
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h2>GitHub Contributions</h2>
-        <img src="https://grass-graph.moshimo.works/images/sosukesuzuki.png">
-      </section>
-      <section>
-        <h2>History</h2>
-        <ul>
-          <li>Student at <a href="https://www.coins.tsukuba.ac.jp/en/" target="_blank">Tsukuba University(Information Science)</a> (2019/4 ~ now)</li>
-          <li>Frontend developer at <a href="https://ubie.life" target="_blank">Ubie,inc</a>(2018/12 ~ now)</li>
-          <li>Certified Super Creator under <a href="https://jr.mitou.org/index_en.html" target="_blank">Mitou Jr</a> project(2017)</li>
-          <li>Software developer at <a href="https://boostio.co" target="_blank">BoosIO,inc</a>(2017/1 ~ 2018/12)</li>
-        </ul>
-      </section>
-      <section>
-        <h2>Media</h2>
-        <ul>
-          <li>
-            <a href="https://edtechzine.jp/article/detail/829" target="_blank">高校生なのにエンジニアインターン!? ほぼ不登校から大学受験もプログラミングで突破した未踏ジュニアスーパークリエータ</a>
-          </li>
-          <li>
-            <a href="https://www.businessinsider.jp/amp/post-184830" target="_blank">エンジニアの評価を可視化する25歳起業家が惚れ込んだ高校生</a>
-          </li>
-        </ul>
-      </section>
-    </main>
+    <header>
+      <div class="body">
+      <h1>sosukesuzuki</h1>
+      <ul class="link-list">
+        <li><a href="">概要</a></li>
+        <li><a href="">職</a></li>
+        <li><a href="">OSS</a></li>
+        <li><a href="">アカウント</a></li>
+      </ul>
+      </div>
+    </header>
   </body>
 </html>
