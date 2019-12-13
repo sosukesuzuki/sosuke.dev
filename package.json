@@ -1,0 +1,38 @@
+{
+  "name": "sosukesuzuki.github.io",
+  "version": "1.0.0",
+  "repository": "ssh://git@github.com/sosukesuzuki/sosukesuzuki.github.io.git",
+  "license": "MIT",
+  "author": "Sosuke Suzuki <aosukeke@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,json,yaml,html}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "devDependencies": {
+    "husky": "^3.1.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "gatsby": "^2.18.5",
+    "gatsby-plugin-manifest": "^2.2.31",
+    "gatsby-plugin-react-helmet": "^3.1.16",
+    "gatsby-plugin-styled-components": "^3.1.14",
+    "gatsby-transformer-remark": "^2.6.38",
+    "normalize.css": "^8.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-fontawesome": "^1.7.1",
+    "react-helmet": "^5.2.1",
+    "styled-components": "^4.4.1",
+    "typeface-lato": "^0.0.75"
+  }
+}
