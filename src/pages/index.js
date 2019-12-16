@@ -8,7 +8,6 @@ function Home() {
         <Layout>
             <SEO />
             <section>
-                <h2>About me</h2>
                 <p>
                     JavaScript と TypeScript と OSS
                     が好きなフロントエンドエンジニアで、筑波大学の学生です。

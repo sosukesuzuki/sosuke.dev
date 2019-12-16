@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import FA from 'react-fontawesome';
 import styled from 'styled-components';
 import 'normalize.css';
@@ -6,8 +7,10 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'typeface-lato';
 import Anchor from './Anchor';
 
+const MAX_WIDTH = '600px';
+
 const Container = styled.div`
-    font-size: 14px;
+    font-size: 16px;
     width: 100vw;
     font-family: Lato;
     a {
@@ -19,7 +22,7 @@ const Container = styled.div`
     }
 `;
 const Header = styled.header`
-    width: 600px;
+    max-width: ${MAX_WIDTH};
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -43,15 +46,21 @@ const IconList = styled.div`
     }
 `;
 const Main = styled.main`
-    width: 600px;
+    max-width: ${MAX_WIDTH};
     margin: 0 auto;
 `;
 
 function Layout({ children }) {
     return (
         <Container>
+            <Helmet>
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                />
+            </Helmet>
             <Header>
-                <h1>鈴木 颯介 / Sosuke Suzuki</h1>
+                <h1>Sosuke Suzuki</h1>
                 <IconList>
                     <Anchor href="https://github.com/sosukesuzuki">
                         <FA
