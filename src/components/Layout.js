@@ -13,13 +13,6 @@ const Container = styled.div`
     font-size: 16px;
     width: 100vw;
     font-family: Lato;
-    a {
-        color: #1971c2;
-        text-decoration: none;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
 `;
 const Header = styled.header`
     max-width: ${MAX_WIDTH};
