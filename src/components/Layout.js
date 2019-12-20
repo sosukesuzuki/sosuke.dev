@@ -50,6 +50,14 @@ const Main = styled.main`
     max-width: ${MAX_WIDTH};
     margin: 0 auto;
 `;
+const Footer = styled.footer`
+    max-width: ${MAX_WIDTH};
+    margin: 0 auto;
+    border-top: 1px solid gray;
+    padding: 20px 0;
+    margin-top: 30px;
+    color: gray;
+`;
 
 function Layout({ children }) {
     return (
@@ -85,6 +93,9 @@ function Layout({ children }) {
                 </IconList>
             </Header>
             <Main>{children}</Main>
+            <Footer>
+                <small>© 2019 Sosuke Suzuki</small>
+            </Footer>
         </Container>
     );
 }
