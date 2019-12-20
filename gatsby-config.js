@@ -16,5 +16,18 @@ module.exports = {
                 icon: 'src/images/logo.jpeg',
             },
         },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/src/pages/posts`,
+                name: 'pages',
+            },
+        },
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                plugins: [],
+            },
+        },
     ],
 };
