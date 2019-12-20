@@ -1,7 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
-const AnchorContainer = styled.a`
+const StyledLink = styled(Link)`
+    color: #1971c2;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+`;
+const StyledAnchor = styled.a`
     color: #1971c2;
     text-decoration: none;
     &:hover {
@@ -9,11 +17,20 @@ const AnchorContainer = styled.a`
     }
 `;
 
-function Anchor({ children, href }) {
-    return (
-        <AnchorContainer href={href} target="_blank" rel="noopener noreferrer">
+function Anchor({ children, href, gatsby, className }) {
+    return gatsby ? (
+        <StyledLink to={href} className={className}>
             {children}
-        </AnchorContainer>
+        </StyledLink>
+    ) : (
+        <StyledAnchor
+            className={className}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            {children}
+        </StyledAnchor>
     );
 }
 

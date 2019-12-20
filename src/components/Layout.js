@@ -20,6 +20,9 @@ const Header = styled.header`
     display: flex;
     justify-content: space-between;
     height: 70px;
+    .heading-link {
+        color: black;
+    }
     h1 {
         margin: 0;
         line-height: 70px;
@@ -28,6 +31,10 @@ const Header = styled.header`
 const IconList = styled.div`
     display: flex;
     padding: 20px 0;
+    .about-link {
+        line-height: 70px;
+        align-self: center;
+    }
     .icon {
         margin-left: 10px;
     }
@@ -53,8 +60,13 @@ function Layout({ children }) {
                 />
             </Helmet>
             <Header>
-                <h1>Sosuke Suzuki</h1>
+                <Anchor href="/" className="heading-link" gatsby>
+                    <h1>Sosuke Suzuki</h1>
+                </Anchor>
                 <IconList>
+                    <Anchor className="about-link" href="/about" gatsby>
+                        About me
+                    </Anchor>
                     <Anchor href="https://github.com/sosukesuzuki">
                         <FA
                             name="github"
