@@ -8,6 +8,7 @@ import 'typeface-lato';
 import Anchor from './Anchor';
 
 const MAX_WIDTH = '600px';
+const HEADER_HEIGHT = '70px';
 
 const Container = styled.div`
     font-size: 16px;
@@ -19,20 +20,20 @@ const Header = styled.header`
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    height: 70px;
+    height: ${HEADER_HEIGHT};
     .heading-link {
         color: black;
     }
     h1 {
         margin: 0;
-        line-height: 70px;
+        line-height: ${HEADER_HEIGHT};
     }
 `;
 const IconList = styled.div`
     display: flex;
     padding: 20px 0;
     .about-link {
-        line-height: 70px;
+        line-height: ${HEADER_HEIGHT};
         align-self: center;
     }
     .icon {
