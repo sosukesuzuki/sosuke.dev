@@ -26,7 +26,16 @@ module.exports = {
         {
             resolve: `gatsby-transformer-remark`,
             options: {
-                plugins: [],
+                plugins: [
+                    {
+                        resolve: `gatsby-remark-external-links`,
+                        options: {
+                            target: '_blank',
+                        },
+                    },
+                    `gatsby-remark-autolink-headers`,
+                    `gatsby-remark-prismjs`,
+                ],
             },
         },
     ],

@@ -3,15 +3,14 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import 'github-markdown-css';
 
 const BlogPost = styled.div`
-    .markdonw-body {
-        box-sizing: border-box;
-        min-width: 200px;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 45px;
+    a {
+        color: #1971c2;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 `;
 const DateText = styled.p`
