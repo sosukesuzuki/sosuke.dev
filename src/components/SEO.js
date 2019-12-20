@@ -22,7 +22,43 @@ function SEO({ title, description }) {
                 return (
                     <Helmet
                         title={title || siteMetadata.title}
-                        description={description || siteMetadata.description}
+                        meta={[
+                            {
+                                name: 'description',
+                                content:
+                                    description || siteMetadata.description,
+                            },
+                            {
+                                property: 'og:url',
+                                content: 'https://sosuke.dev',
+                            },
+                            {
+                                property: 'og:title',
+                                content: title || siteMetadata.title,
+                            },
+                            {
+                                property: 'og:description',
+                                content:
+                                    description || siteMetadata.description,
+                            },
+                            {
+                                name: 'twitter:card',
+                                content: 'summary',
+                            },
+                            {
+                                name: 'twitter:creator',
+                                content: '@__sosukesuzuki',
+                            },
+                            {
+                                name: 'twitter:title',
+                                content: title || siteMetadata.title,
+                            },
+                            {
+                                name: 'twitter:description',
+                                content:
+                                    description || siteMetadata.description,
+                            },
+                        ]}
                     />
                 );
             }}

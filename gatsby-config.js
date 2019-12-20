@@ -2,6 +2,10 @@ module.exports = {
     siteMetadata: {
         title: '鈴木颯介 / Sosuke Suzuki',
         description: "sosukesuzuki's personal website",
+        siteUrl: 'https://sosuke.dev',
+        social: {
+            twitter: '@__sosukesuzuki',
+        },
     },
     plugins: [
         `gatsby-plugin-styled-components`,
