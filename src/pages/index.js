@@ -9,7 +9,8 @@ const BlogPostItem = styled(Link)`
     display: block;
     text-decoration: none;
     color: black;
-    margin: 10px 0;
+    margin-top: 10px;
+    margin-bottom: 50px;
     .post-title {
         font-size: 24px;
         margin: 5px 0;
