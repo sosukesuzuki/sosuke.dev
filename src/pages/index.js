@@ -25,7 +25,7 @@ const BlogPostItem = styled(Link)`
     }
 `;
 
-function Home({ data }) {
+export default function Index({ data }) {
     const posts = data.allMarkdownRemark.edges.map(edges => edges.node);
     return (
         <Layout>
@@ -61,5 +61,3 @@ export const pageQuery = graphql`
         }
     }
 `;
-
-export default Home;

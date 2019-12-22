@@ -59,7 +59,7 @@ const Footer = styled.footer`
     color: gray;
 `;
 
-function Layout({ children }) {
+export default function Layout({ children }) {
     return (
         <Container>
             <Helmet>
@@ -99,5 +99,3 @@ function Layout({ children }) {
         </Container>
     );
 }
-
-export default Layout;

@@ -17,7 +17,7 @@ const StyledAnchor = styled.a`
     }
 `;
 
-function Anchor({ children, href, gatsby, className }) {
+export default function Anchor({ children, href, gatsby, className }) {
     return gatsby ? (
         <StyledLink to={href} className={className}>
             {children}
@@ -33,5 +33,3 @@ function Anchor({ children, href, gatsby, className }) {
         </StyledAnchor>
     );
 }
-
-export default Anchor;

@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import Anchor from '../components/Anchor';
 import SEO from '../components/SEO';
 
-function About() {
+export default function About() {
     return (
         <Layout>
             <SEO />
@@ -48,5 +48,3 @@ function About() {
         </Layout>
     );
 }
-
-export default About;

@@ -13,7 +13,7 @@ const query = graphql`
     }
 `;
 
-function SEO({ title, description }) {
+export default function SEO({ title, description }) {
     return (
         <StaticQuery
             query={query}
@@ -65,5 +65,3 @@ function SEO({ title, description }) {
         />
     );
 }
-
-export default SEO;
