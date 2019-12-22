@@ -1,6 +1,6 @@
 ---
 path: '/posts/2019-what-i-did'
-date: 2019-12-18
+date: 2019-12-22
 title: '2019 やったこと'
 ---
 
