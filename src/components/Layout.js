@@ -11,7 +11,8 @@ const MAX_WIDTH = '600px';
 const HEADER_HEIGHT = '70px';
 
 const Container = styled.div`
-    font-size: 16px;
+    font-size: 18px;
+    letter-spacing: 1px;
     width: 100vw;
     font-family: Lato;
 `;
