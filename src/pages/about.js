@@ -14,7 +14,7 @@ export default function About() {
                 </p>
             </section>
             <section>
-                <h2>OSS</h2>
+                <h2>Open Source</h2>
                 <ul>
                     <li>
                         <Anchor href="https://github.com/prettier/prettier">
@@ -33,7 +33,7 @@ export default function About() {
                 </ul>
             </section>
             <section>
-                <h2>Works</h2>
+                <h2>Work History</h2>
                 <ul>
                     <li>
                         <Anchor href="https://ubie.life">Ubie, inc</Anchor>{' '}
