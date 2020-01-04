@@ -7,7 +7,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'typeface-lato';
 import Anchor from './Anchor';
 
-const MAX_WIDTH = '600px';
+const MAX_WIDTH = '1000px';
 const HEADER_HEIGHT = '70px';
 
 const Container = styled.div`
