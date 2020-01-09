@@ -50,6 +50,7 @@ const IconList = styled.div`
 const Main = styled.main`
     max-width: ${MAX_WIDTH};
     margin: 0 auto;
+    word-wrap: break-word;
 `;
 const Footer = styled.footer`
     max-width: ${MAX_WIDTH};
