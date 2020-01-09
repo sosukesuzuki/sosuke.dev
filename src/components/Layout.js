@@ -4,17 +4,14 @@ import FA from 'react-fontawesome';
 import styled from 'styled-components';
 import 'normalize.css';
 import 'font-awesome/css/font-awesome.min.css';
-import 'typeface-lato';
 import Anchor from './Anchor';
 
 const MAX_WIDTH = '1000px';
 const HEADER_HEIGHT = '70px';
 
 const Container = styled.div`
-    font-size: 18px;
     letter-spacing: 1px;
     width: 100vw;
-    font-family: Lato;
 `;
 const Header = styled.header`
     max-width: ${MAX_WIDTH};
