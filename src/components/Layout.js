@@ -6,12 +6,11 @@ import 'normalize.css';
 import 'font-awesome/css/font-awesome.min.css';
 import Anchor from './Anchor';
 
-const MAX_WIDTH = '1000px';
+const MAX_WIDTH = '800px';
 const HEADER_HEIGHT = '70px';
 
 const Container = styled.div`
-    letter-spacing: 1px;
-    width: 100vw;
+    padding: 0 10px;
 `;
 const Header = styled.header`
     max-width: ${MAX_WIDTH};
@@ -24,6 +23,7 @@ const Header = styled.header`
     }
     h1 {
         margin: 0;
+        font-size: 25px;
         line-height: ${HEADER_HEIGHT};
     }
 `;
@@ -72,9 +72,6 @@ export default function Layout({ children }) {
                     <h1>Sosuke Suzuki</h1>
                 </Anchor>
                 <IconList>
-                    <Anchor className="about-link" href="/about" gatsby>
-                        About me
-                    </Anchor>
                     <Anchor href="https://github.com/sosukesuzuki">
                         <FA
                             name="github"

@@ -3,26 +3,12 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
-import { Link } from 'gatsby';
+import Anchor from '../components/Anchor';
 
-const BlogPostItem = styled(Link)`
-    display: block;
-    text-decoration: none;
-    color: black;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    .post-title {
-        font-size: 24px;
-        margin: 5px 0;
-    }
-    .date {
-        color: gray;
-        margin: 15px 0;
-    }
-    .description {
-        margin: 5px 0;
-        font-size: 15px;
-    }
+const BlogPostItem = styled.h3`
+    font-size: 15px;
+    font-weight: normal;
+    margin: 5px 0;
 `;
 
 export default function Index({ data }) {
@@ -31,13 +17,11 @@ export default function Index({ data }) {
         <Layout>
             <SEO />
             {posts.map(post => (
-                <BlogPostItem
-                    key={post.frontmatter.title}
-                    to={post.frontmatter.path}
-                >
-                    <h3 className="post-title">{post.frontmatter.title}</h3>
-                    <p className="date">{post.frontmatter.date}</p>
-                    <p className="description">{post.excerpt}</p>
+                <BlogPostItem>
+                    <span>{post.frontmatter.date}: </span>
+                    <Anchor gatsby href={post.frontmatter.path}>
+                        {post.frontmatter.title}
+                    </Anchor>
                 </BlogPostItem>
             ))}
         </Layout>
@@ -53,7 +37,7 @@ export const pageQuery = graphql`
                     id
                     frontmatter {
                         title
-                        date(formatString: "MMMM DD, YYYY")
+                        date(formatString: "YYYY-MM-DD")
                         path
                     }
                 }
