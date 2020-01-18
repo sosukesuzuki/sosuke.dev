@@ -10,6 +10,7 @@ const MAX_WIDTH = '800px';
 const HEADER_HEIGHT = '70px';
 
 const Container = styled.div`
+    font-family: 'Noto Sans JP', sans-serif;
     padding: 0 10px;
 `;
 const Header = styled.header`
@@ -65,6 +66,10 @@ export default function Layout({ children }) {
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
+                />
+                <link
+                    href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap"
+                    rel="stylesheet"
                 />
             </Helmet>
             <Header>
