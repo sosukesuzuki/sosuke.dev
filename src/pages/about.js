@@ -19,16 +19,16 @@ export default function About() {
                     <li>
                         <Anchor href="https://github.com/prettier/prettier">
                             Prettier
-                        </Anchor>
-                        (maintainer) An opinionated code formatter
+                        </Anchor>{' '}
+                        An opinionated code formatter
                     </li>
                     <li>
                         ex-
                         <Anchor href="https://github.com/BoostIO/Boostnote">
                             Boostnote
-                        </Anchor>
-                        (maintainer) A markdown editor for developers on Mac,
-                        Windows and Linux.{' '}
+                        </Anchor>{' '}
+                        A markdown editor for developers on Mac, Windows and
+                        Linux.{' '}
                     </li>
                 </ul>
             </section>

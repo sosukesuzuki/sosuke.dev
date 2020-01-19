@@ -49,6 +49,9 @@ const Main = styled.main`
     max-width: ${MAX_WIDTH};
     margin: 0 auto;
     word-wrap: break-word;
+    p {
+        line-height: 25px;
+    }
 `;
 const Footer = styled.footer`
     max-width: ${MAX_WIDTH};
