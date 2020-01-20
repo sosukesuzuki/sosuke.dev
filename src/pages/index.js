@@ -36,12 +36,12 @@ export default function Index({ data }) {
             <Profile>
                 <img src={logo} alt="sosukesuzuki" />
                 <div>
-                    <h2>鈴木 颯介</h2>
+                    <Anchor gatsby href="./about">
+                        <h2>鈴木 颯介</h2>
+                    </Anchor>
                     <p>
-                        JavaScript と TypeScript と OSS が好きな大学生です。
-                        <Anchor gatsby href="/about">
-                            詳しくはこちら。
-                        </Anchor>
+                        JavaScript と TypeScript と OSS
+                        が好きなフロントエンドエンジニアです。
                     </p>
                 </div>
             </Profile>
