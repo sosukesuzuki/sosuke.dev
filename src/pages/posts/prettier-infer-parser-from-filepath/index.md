@@ -1,7 +1,7 @@
 ---
 path: '/posts/prettier-infer-parser-from-filepath'
 date: 2020-01-05
-title: 'Prettier は ファイルパスからパーサーを推測するよね'
+title: 'Prettier がファイルパスからパーサを推測するときの情報源'
 ---
 
 Prettier の`.cjs`対応をしようとおもって、すでに対応されている`mjs`とかで grep してもヒットしないからどこに情報持ってるんだろうって思って調べたメモをちょっとちゃんと書いたものです。
