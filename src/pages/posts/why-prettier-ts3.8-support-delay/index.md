@@ -4,6 +4,14 @@ date: 2020-03-06
 title: 'Prettier の TypeScript 3.8 対応遅れてそうだけどどうしたの？'
 ---
 
+**追記:**
+
+3 月 21 日に[Prettier 2.0](https://prettier.io/blog/2020/03/21/2.0.0.html)はリリースされ、無事 TypeScript 3.8 のサポートも行われました〜
+
+---
+
+**ここから本文:**
+
 TypeScript 3.8 の正式版が 2 月 20 日 にリリースされましたね。([リリースノート](https://devblogs.microsoft.com/typescript/announcing-typescript-3-8/))
 
 type only import/export や ECMAScript private field、top-level await など、いくつかの便利な新しい構文がサポートされるようになりました。
