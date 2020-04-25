@@ -46,7 +46,7 @@ export default function Index({ data }) {
         </div>
       </Profile>
       {posts.map((post) => (
-        <BlogPostItem>
+        <BlogPostItem key={post.frontmatter.path}>
           <span>{post.frontmatter.date}: </span>
           <Anchor gatsby href={post.frontmatter.path}>
             {post.frontmatter.title}

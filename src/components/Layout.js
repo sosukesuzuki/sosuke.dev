@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import FA from "react-fontawesome";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import "normalize.css";
 import "font-awesome/css/font-awesome.min.css";
 import Anchor from "./Anchor";
@@ -9,8 +9,13 @@ import Anchor from "./Anchor";
 const MAX_WIDTH = "800px";
 const HEADER_HEIGHT = "70px";
 
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+`;
 const Container = styled.div`
-  font-family: "Noto Sans JP", sans-serif;
   padding: 0 10px;
 `;
 const Header = styled.header`
@@ -65,31 +70,33 @@ const Footer = styled.footer`
 
 export default function Layout({ children }) {
   return (
-    <Container>
-      <Helmet>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap"
-          rel="stylesheet"
-        />
-      </Helmet>
-      <Header>
-        <Anchor href="/" className="heading-link" gatsby>
-          <h1>Sosuke Suzuki</h1>
-        </Anchor>
-        <IconList>
-          <Anchor href="https://github.com/sosukesuzuki">
-            <FA name="github" className="github-icon icon" size="2x" />
+    <>
+      <GlobalStyle />
+      <Container>
+        <Helmet>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+        </Helmet>
+        <Header>
+          <Anchor href="/" className="heading-link" gatsby>
+            <h1>Sosuke Suzuki</h1>
           </Anchor>
-          <Anchor href="https://twitter.com/__sosukesuzuki">
-            <FA name="twitter" className="twitter-icon icon" size="2x" />
-          </Anchor>
-        </IconList>
-      </Header>
-      <Main>{children}</Main>
-      <Footer>
-        <small>© 2019 Sosuke Suzuki</small>
-      </Footer>
-    </Container>
+          <IconList>
+            <Anchor href="https://github.com/sosukesuzuki">
+              <FA name="github" className="github-icon icon" size="2x" />
+            </Anchor>
+            <Anchor href="https://twitter.com/__sosukesuzuki">
+              <FA name="twitter" className="twitter-icon icon" size="2x" />
+            </Anchor>
+          </IconList>
+        </Header>
+        <Main>{children}</Main>
+        <Footer>
+          <small>© 2019 Sosuke Suzuki</small>
+        </Footer>
+      </Container>
+    </>
   );
 }
