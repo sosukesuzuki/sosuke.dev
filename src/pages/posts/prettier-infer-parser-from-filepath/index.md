@@ -1,7 +1,7 @@
 ---
-path: '/posts/prettier-infer-parser-from-filepath'
+path: "/posts/prettier-infer-parser-from-filepath"
 date: 2020-01-05
-title: 'Prettier がファイルパスからパーサを推測するときの情報源'
+title: "Prettier がファイルパスからパーサを推測するときの情報源"
 ---
 
 Prettier の`.cjs`対応をしようとおもって、すでに対応されている`mjs`とかで grep してもヒットしないからどこに情報持ってるんだろうって思って調べたメモをちょっとちゃんと書いたものです。
@@ -53,11 +53,11 @@ Prettier にはプラグインという機能があり、コアで対応でき�
 
 Prettier のプラグインは次の５つを named export することで実装できます。(`options`と`defaultOptions`は必須ではなかった気がする)
 
--   `languages`
--   `parsers`
--   `printers`
--   `options`
--   `defaultOptions`
+- `languages`
+- `parsers`
+- `printers`
+- `options`
+- `defaultOptions`
 
 この`languages`というのは、当然ですが決められた形をしたオブジェクトの配列で、そのオブジェクトには`extensions`というプロパティを含めることができます。**そして`extensions`に渡す配列で、言語と拡張子の対応付け行っています。**
 
