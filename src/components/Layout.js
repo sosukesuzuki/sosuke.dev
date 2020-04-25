@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import FA from "react-fontawesome";
 import styled, { createGlobalStyle } from "styled-components";
-import "normalize.css";
+import reset from "styled-reset";
 import "font-awesome/css/font-awesome.min.css";
 import Anchor from "./Anchor";
 
@@ -10,6 +10,7 @@ const MAX_WIDTH = "800px";
 const HEADER_HEIGHT = "70px";
 
 const GlobalStyle = createGlobalStyle`
+  ${reset}
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
   body {
     font-family: 'Noto Sans JP', sans-serif;
