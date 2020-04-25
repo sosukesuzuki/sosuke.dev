@@ -15,6 +15,24 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Noto Sans JP', sans-serif;
   }
+  h1 {
+    font-size: 27px;
+    margin: 16px 0;
+  }
+  h2 {
+    font-size: 25px;
+    margin: 16px 0;
+  }
+  h3 {
+    font-size: 20px;
+    margin: 16px 0;
+  }
+  p {
+    margin-bottom: 8px;
+  }
+  ul {
+    list-style: inside;
+  }
 `;
 const Container = styled.div`
   padding: 0 10px;
