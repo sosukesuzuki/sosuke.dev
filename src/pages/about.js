@@ -9,14 +9,8 @@ export default function About() {
       <SEO />
       <section>
         <p>
-          JavaScript と TypeScript と OSS が好きなフロントエンドエンジニアです。
-        </p>
-        <p>
-          現在、業務委託でのお仕事を探しています。
-          <Anchor href="https://gist.github.com/sosukesuzuki/8a2263713a781141600041935a5c90ae">
-            詳しいレジュメ
-          </Anchor>
-          をご覧になった上で記載されているメールアドレスまでご連絡ください。
+          OSS
+          が好きなフロントエンドエンジニアです。開発者の体験を向上させること、フロントエンドのパフォーマンスを改善することに関心があります。
         </p>
       </section>
       <section>
