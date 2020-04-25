@@ -1,9 +1,9 @@
 import React from "react";
 import Helmet from "react-helmet";
-import FA from "react-fontawesome";
 import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import "font-awesome/css/font-awesome.min.css";
+import github from "../images/GitHub-Mark-120px-plus.png";
+import twitter from "../images/Twitter_Logo_Blue.png";
 import Anchor from "./Anchor";
 
 const MAX_WIDTH = "800px";
@@ -36,6 +36,7 @@ const Header = styled.header`
 `;
 const IconList = styled.div`
   display: flex;
+  align-items: center;
   padding: 20px 0;
   .about-link {
     line-height: ${HEADER_HEIGHT};
@@ -45,10 +46,10 @@ const IconList = styled.div`
     margin-left: 10px;
   }
   .github-icon {
-    color: #24292e;
+    height: 30px;
   }
   .twitter-icon {
-    color: #1da1f2;
+    height: 50px;
   }
 `;
 const Main = styled.main`
@@ -86,10 +87,10 @@ export default function Layout({ children }) {
           </Anchor>
           <IconList>
             <Anchor href="https://github.com/sosukesuzuki">
-              <FA name="github" className="github-icon icon" size="2x" />
+              <img src={github} alt="github" className="github-icon" />
             </Anchor>
             <Anchor href="https://twitter.com/__sosukesuzuki">
-              <FA name="twitter" className="twitter-icon icon" size="2x" />
+              <img src={twitter} alt="twitter" className="twitter-icon" />
             </Anchor>
           </IconList>
         </Header>
