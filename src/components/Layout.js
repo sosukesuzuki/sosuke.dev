@@ -11,9 +11,8 @@ const HEADER_HEIGHT = "70px";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
   body {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: "Hiragino Kaku Gothic ProN", "メイリオ", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   h1 {
     font-size: 27px;
@@ -29,9 +28,14 @@ const GlobalStyle = createGlobalStyle`
   }
   p {
     margin-bottom: 8px;
+    line-height: 20px;
   }
   ul {
     list-style: inside;
+  }
+  p,
+  li {
+    line-height: 27px;
   }
 `;
 const Container = styled.div`
@@ -74,10 +78,6 @@ const Main = styled.main`
   max-width: ${MAX_WIDTH};
   margin: 0 auto;
   word-wrap: break-word;
-  p,
-  li {
-    line-height: 25px;
-  }
 `;
 const Footer = styled.footer`
   max-width: ${MAX_WIDTH};
