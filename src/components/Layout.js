@@ -12,19 +12,22 @@ const HEADER_HEIGHT = "70px";
 const GlobalStyle = createGlobalStyle`
   ${reset}
   body {
-    font-family: "Hiragino Kaku Gothic ProN", "メイリオ", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   }
   h1 {
     font-size: 27px;
     margin: 16px 0;
+    font-weight: bold
   }
   h2 {
     font-size: 25px;
     margin: 16px 0;
+    font-weight: bold;
   }
   h3 {
     font-size: 20px;
     margin: 16px 0;
+    font-weight: bold;
   }
   p {
     margin-bottom: 8px;
