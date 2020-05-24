@@ -2,6 +2,8 @@
 path: "/posts/introducing-yarn-2note"
 date: 2020-01-25
 title: "Introducing Yarn 2 ! メモ"
+tags:
+  - "yarn"
 ---
 
 https://dev.to/arcanis/introducing-yarn-2-4eh1

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import Tags from "../components/Tags";
 
 const BlogPost = styled.div`
   a {
@@ -19,12 +20,18 @@ const DateText = styled.p`
 
 export default function PostTemplate({ data }) {
   const { markdownRemark: post } = data;
+  console.log(post);
   return (
     <Layout>
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <BlogPost>
         <div className="markdown-body">
           <DateText>{post.frontmatter.date}</DateText>
+          {post.frontmatter.tags ? (
+            <div>
+              <Tags tags={post.frontmatter.tags} />
+            </div>
+          ) : null}
           <h1>{post.frontmatter.title}</h1>
           <div
             className="blog-post-content"
@@ -43,6 +50,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        tags
       }
     }
   }

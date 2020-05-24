@@ -2,6 +2,9 @@
 path: "/posts/2019-what-i-did"
 date: 2019-12-22
 title: "2019 やったこと"
+tags:
+  - "OSS"
+  - "振り返り"
 ---
 
 昨年から引き続きですが、ずっと JavaScript か TypeScript を書いていました。

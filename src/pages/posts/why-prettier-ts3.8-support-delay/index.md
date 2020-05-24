@@ -2,6 +2,9 @@
 path: "/posts/why-prettier-ts3.8-support-delay"
 date: 2020-03-06
 title: "Prettier の TypeScript 3.8 対応遅れてそうだけどどうしたの？"
+tags:
+  - "Prettier"
+  - "TypeScript"
 ---
 
 **追記:**

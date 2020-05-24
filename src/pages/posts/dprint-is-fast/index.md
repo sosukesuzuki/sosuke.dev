@@ -2,6 +2,10 @@
 path: "/posts/dprint-is-fast"
 date: 2020-05-25
 title: "Deno に採用されたコードフォーマッター dprint が速い"
+tags:
+  - "Prettier"
+  - "Deno"
+  - "dprint"
 ---
 
 Deno では以下のようにサブコマンドを実行することで、ソースコードのフォーマットをすることができます。
