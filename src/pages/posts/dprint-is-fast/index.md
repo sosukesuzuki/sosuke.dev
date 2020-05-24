@@ -73,7 +73,7 @@ Summary
 
 ```
 dprint: 1.209 s
-prettier: 2.519
+prettier: 2.519 s
 ```
 
 この規模のプロジェクトでも、 dprint のほうが 2 倍くらい速くなっています。
@@ -105,8 +105,8 @@ Summary
 平均値を見てみます。
 
 ```
-dprint: 5.295
-prettier: 22.387
+dprint: 5.295 s
+prettier: 22.387 s
 ```
 
 この規模になってくると差が顕著になってきますね。
