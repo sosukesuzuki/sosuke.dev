@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "鈴木颯介 / Sosuke Suzuki",
+    title: "sosuke.dev",
     description: "Sosuke Suzuki のブログです。JavaScript 等についてです。",
   },
   plugins: [
