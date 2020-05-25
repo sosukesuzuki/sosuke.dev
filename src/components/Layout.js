@@ -104,7 +104,7 @@ export default function Layout({ children }) {
         </Helmet>
         <Header>
           <Anchor href="/" className="heading-link" gatsby>
-            <h1>Sosuke Suzuki</h1>
+            <h1>sosuke.dev</h1>
           </Anchor>
           <IconList>
             <Anchor href="https://github.com/sosukesuzuki">

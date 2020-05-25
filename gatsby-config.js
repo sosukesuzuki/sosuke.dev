@@ -9,8 +9,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "鈴木颯介 / Sosuke Suzuki",
-        short_name: "starter",
+        name: "sosuke.dev",
+        short_name: "sosuke.dev",
         start_url: "/",
         display: `standalone`,
         icon: "src/images/logo.jpeg",
