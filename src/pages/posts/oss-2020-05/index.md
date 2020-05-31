@@ -117,7 +117,7 @@ interface T2 {
 
 `method-signagure-style`ルールはこれをどちらかに強制することができます。
 
-ただ、メソッドのオーバーロードがあったときにメソッドのショートハンドから通常の関数プロパティに強制すると、ルールの自動修正の結果がエラーになってしまうバグがありました。
+ただ、メソッドのオーバーロードがあったときにメソッドのショートハンドから通常の関数プロパティに強制すると、ルールの自動フォーマットの結果がエラーになってしまうバグがありました。
 
 例えば、次のコードを通常の関数プロパティに強制することを考えます。
 
@@ -129,7 +129,7 @@ interface T {
 }
 ```
 
-今までの実装だと、このように修正されていました。
+今までの実装だと、このようにフォーマットされていました。
 
 ```ts
 interface T {
@@ -139,7 +139,7 @@ interface T {
 }
 ```
 
-実際試してみるとわかりますが([Playground link](https://www.typescriptlang.org/play?#code/JYOwLgpgTgZghgYwgAgCrIN4ChnILYRgAWA9gCYBcAFAJTIC8AfMgG4nBkDcO+hplyKnCgBzCsgDOYKKBF0mrdlx4Fi5cUNHiQAVzwAjaPOZSZIEdwC+QA))、これは`Duplicate identifier 'method'.`でコンパイラに怒られてしまいます。なので、これを intersection types としてフォーマットすることでこれを回避します。
+実際試してみるとわかりますが([Playground link](https://www.typescriptlang.org/play?#code/JYOwLgpgTgZghgYwgAgCrIN4ChnILYRgAWA9gCYBcAFAJTIC8AfMgG4nBkDcO+hplyKnCgBzCsgDOYKKBF0mrdlx4Fi5cUNHiQAVzwAjaPOZSZIEdwC+QA))、これは`Duplicate identifier 'method'.`でコンパイラに怒られてしまいます。なので、これを intersection types としてフォーマットすることでエラーを回避します。
 
 ```ts
 interface T {
