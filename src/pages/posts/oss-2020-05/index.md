@@ -1,7 +1,7 @@
 ---
 path: "/posts/oss-2020-05"
 date: 2020-06-01
-title: "5月のOSS活動"
+title: "5 月のOSS活動"
 tags:
   - "Prettier"
   - "OSS"
