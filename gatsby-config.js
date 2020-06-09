@@ -4,6 +4,7 @@ module.exports = {
     description: "Sosuke Suzuki のブログです。JavaScript 等についてです。",
   },
   plugins: [
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
@@ -35,6 +36,12 @@ module.exports = {
           },
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
         ],
       },
     },
