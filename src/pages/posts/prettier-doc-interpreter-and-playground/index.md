@@ -12,8 +12,6 @@ Prettier ではコードを整形する過程で Doc という中間表現を使
 
 これがあると、Prettier を開発するときに Doc の挙動をすぐに確かめられるので嬉しくなります。
 
-[Playground](https://prettier-doc-playground.netlify.app/)も作ったので遊んでみてください。
-
 ## Prettier のしくみ
 
 まず、Prettier のしくみをざっくり説明します。
@@ -33,6 +31,8 @@ Prettier のソースコード内には Doc を生成するための関数や変
 ```js
 const doc = group(concat(["foo", hardline, "bar"]));
 ```
+
+ちなみに、doc builder のドキュメントは https://github.com/prettier/prettier/blob/master/commands.md にあります。
 
 このとき変数`doc`は次のようなオブジェクトになっています。
 
