@@ -36,7 +36,7 @@ export default function About() {
         <ul>
           <li>
             <Anchor href="https://ubie.life">Ubie, inc</Anchor>{" "}
-            ソフトウェアエンジニア(インターン) (2018/ 12 ~ 現在)
+            ソフトウェアエンジニア(インターン) (2018/ 12 ~ 2020/05)
           </li>
           <li>
             <Anchor href="https://boostio.co">BoostIO, inc</Anchor>{" "}
