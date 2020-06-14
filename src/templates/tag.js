@@ -18,7 +18,6 @@ const TagTitle = styled.h2`
 export default function Tag({ data, pageContext }) {
   const posts = data.allMarkdownRemark.edges.map((e) => e.node);
   const { tag } = pageContext;
-  console.log(posts);
   return (
     <Layout>
       <SEO />

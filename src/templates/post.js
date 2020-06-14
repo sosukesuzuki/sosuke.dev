@@ -20,7 +20,6 @@ const DateText = styled.p`
 
 export default function PostTemplate({ data }) {
   const { markdownRemark: post } = data;
-  console.log(post);
   return (
     <Layout>
       <SEO title={post.frontmatter.title} description={post.excerpt} />
