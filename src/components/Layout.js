@@ -12,21 +12,22 @@ const HEADER_HEIGHT = "70px";
 const GlobalStyle = createGlobalStyle`
   ${reset}
   body {
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-family: 'Noto Sans JP', sans-serif;
   }
   h1 {
     font-size: 27px;
     margin: 16px 0;
     font-weight: bold
+    line-height: 40px;
   }
   h2 {
     font-size: 25px;
-    margin: 16px 0;
+    margin: 24px 0;
     font-weight: bold;
   }
   h3 {
     font-size: 20px;
-    margin: 16px 0;
+    margin: 24px 0;
     font-weight: bold;
   }
   p {
@@ -35,10 +36,12 @@ const GlobalStyle = createGlobalStyle`
   }
   ul {
     list-style: inside;
+    margin-bottom: 16px;
   }
   p,
   li {
     line-height: 27px;
+    margin-bottom: 8px;
   }
 `;
 const Container = styled.div`
@@ -100,6 +103,10 @@ export default function Layout({ children }) {
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+            rel="stylesheet"
           />
         </Helmet>
         <Header>
