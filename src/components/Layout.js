@@ -24,11 +24,13 @@ const GlobalStyle = createGlobalStyle`
     font-size: 25px;
     margin: 24px 0;
     font-weight: bold;
+    line-height: 30px;
   }
   h3 {
     font-size: 20px;
     margin: 24px 0;
     font-weight: bold;
+    line-height: 30px;
   }
   p {
     margin-bottom: 8px;
@@ -105,7 +107,7 @@ export default function Layout({ children }) {
             content="width=device-width, initial-scale=1.0"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;900&display=swap"
             rel="stylesheet"
           />
         </Helmet>
