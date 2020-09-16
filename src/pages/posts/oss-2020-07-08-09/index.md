@@ -1,0 +1,59 @@
+---
+path: "/posts/oss-2020-07-08-09"
+date: 2020-09-16
+title: "7月と8月と9月前半の OSS 活動"
+tags:
+  - "Prettier"
+  - "acorn"
+  - "Babel"
+  - "OSS"
+---
+
+7 月から 9 月前半までの OSS 活動の振り返りです。
+
+## prettier/prettier
+
+ブログにも書きましたが初めて自分でリリース行ったりしてコード書く以外のちょっと面倒なことの分量が増えたかなーという感覚があります。リリースの間隔が長すぎるというのはメンテナーたちも課題だと思っていて、月 1 マイナーリリースを目指そうかなーみたいな話がありつつも、最近自動車教習所に通い始めて自由な時間が減っている+秋学期は単位をとらないとまずいのでどうなるかはわかりません。
+
+- [2.1 のリリース](https://sosuke.dev/posts/my-first-release-prettier)
+- [2.1.1 のリリース](https://github.com/prettier/prettier/releases/tag/2.1.1)
+- [2.1.2 のリリース](https://github.com/prettier/prettier/releases/tag/2.1.2)
+- [#8849 remark v8 へのアップデートに伴うテストの追加](https://github.com/prettier/prettier/pull/8849)
+- [#8820 #8849 では足りてなかったテストの追加](https://github.com/prettier/prettier/pull/8820)
+- [#8740 一部の関数で JSDoc の型が正しく参照できてなかったので修正](https://github.com/prettier/prettier/pull/8740)
+- [#8710 型チェックに使っている tsc がデバッグ用のファイルを無視するように修正](https://github.com/prettier/prettier/pull/8710)
+- [#8692 TS4.0 で`Short-Circuiting Assignment Operators`が導入されるのでそのためにテストを追加](https://github.com/prettier/prettier/pull/8692)
+- [#8689 一部の関数で JSDoc の型が正しく参照できていなかったので修正](https://github.com/prettier/prettier/pull/8689)
+- [#9078 CSS in JS で不要な空白が挿入されるバグの修正](https://github.com/prettier/prettier/pull/9078)
+- [#9058 ブログ記事の下書きを生成するスクリプトを修正](https://github.com/prettier/prettier/pull/9058)
+- [#9024 過去に行った#7889 のリバートが不十分だったので続き](https://github.com/prettier/prettier/pull/9024)
+- [#8982 TypeScript 4.0 サポート](https://github.com/prettier/prettier/pull/8982)
+- [#8984 各 Pull Request に含まれるチェンジログからブログ記事を生成するときに一部文言を置換するように修正](https://github.com/prettier/prettier/pull/8984)
+- [#8981 新しい Prettier を typescript-eslint のソースコードで実行したときに発生したバグの修正(1)](https://github.com/prettier/prettier/pull/8981)
+- [#8967 新しい Prettier を typescript-eslint のソースコードで実行したときに発生したバグの修正(２)](https://github.com/prettier/prettier/pull/8967)
+- [#8932 2.1 リリースブログを追加](https://github.com/prettier/prettier/pull/8932)
+- [#9083 リリーススクリプトを実行するタイミングで dependents cound を更新してリモートリポジトリにプッシュするように修正](https://github.com/prettier/prettier/pull/9183)
+- [#9164 Array を Set っぽく使ってるところで Set を使うように修正](https://github.com/prettier/prettier/pull/9164)
+- [#9136 CSS in JS で一部改行が崩れるバグを修正](https://github.com/prettier/prettier/pull/9136)
+- [#9116 GraphQL で一部インデントが崩れるバグを修正](https://github.com/prettier/prettier/pull/9116)
+- [#9143 YAML で一部改行が二重にプリントされてしまうバグを修正](https://github.com/prettier/prettier/pull/9143)
+
+## kintone/dts-gen
+
+- [#325 標準の no-unused-vars ではなく @typescript-eslint の no-unused-vars を使うように修正](https://github.com/kintone/dts-gen/pull/325)
+
+## acronjs/acorn-jsx
+
+- [#115 JSX Element にカッコなしで yield したときにシンタックスエラーになるバグを修正](https://github.com/acornjs/acorn-jsx/pull/115)
+
+## SchemaStore/schemastore
+
+- [#1213 Prettier 2.1 用のスキーマに修正](https://github.com/SchemaStore/schemastore/pull/1213)
+
+## mizchi/mdbuf
+
+- [#19 GraphQL コードブロックを書いたときに止まるバグを修正](https://github.com/mizchi/mdbuf/pull/19)
+
+## babel/babel
+
+- [#12061 babel-parser でコンストラクタ以外にパラメタプロパティを使ったときに出るシンタックスエラーを改善、またリカバリ可能に修正](https://github.com/babel/babel/pull/12061)
