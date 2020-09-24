@@ -1,0 +1,152 @@
+:root {
+  --max-width: 800px;
+  --header-height: 70px;
+}
+
+/* Reset */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+ol,
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Global styles */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+}
+h1 {
+  font-size: 27px;
+  margin: 16px 0;
+  font-weight: bold;
+  line-height: 40px;
+}
+h2 {
+  font-size: 25px;
+  margin: 24px 0;
+  font-weight: bold;
+  line-height: 30px;
+}
+h3 {
+  font-size: 20px;
+  margin: 24px 0;
+  font-weight: bold;
+  line-height: 30px;
+}
+p {
+  margin-bottom: 8px;
+  line-height: 20px;
+}
+ul {
+  list-style: inside;
+  margin-bottom: 16px;
+}
+p,
+li {
+  line-height: 27px;
+  margin-bottom: 8px;
+}
+a {
+  text-decoration: none;
+  color: rgb(25, 113, 194);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header styles */
+header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+header a {
+  color: black;
+}
+header h1 {
+  margin: 0;
+  font-size: 25px;
+  line-height: var(--header-height);
+}
+header .icons {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+}
+header .icons .icon {
+  margin-left: 10px;
+}
+header .icons .github-icon {
+  height: 30px;
+}
+header .icons .twitter-icon {
+  height: 50px;
+}
+
+/* Main styles */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  word-wrap: break-word;
+}
+.blog-post-item {
+  font-size: 15px;
+  font-weight: normal;
+  margin: 5px 0;
+}
+.date-text {
+  color: gray;
+}
+.profile {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.profile h2,
+p {
+  margin: 0;
+  font-size: 15px;
+}
+.profile img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Footer styles */
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  border-top: 1px solid gray;
+  padding: 20px 0;
+  margin-top: 30px;
+  color: gray;
+}

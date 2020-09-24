@@ -1,10 +1,8 @@
 ---
-path: "/posts/2019-what-i-did"
+layout: article-layout.11ty.js
 date: 2019-12-22
 title: "2019 やったこと"
-tags:
-  - "OSS"
-  - "振り返り"
+tags: post
 ---
 
 昨年から引き続きですが、ずっと JavaScript か TypeScript を書いていました。

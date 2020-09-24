@@ -1,9 +1,8 @@
 ---
-path: "/posts/prettier-infer-parser-from-filepath"
+layout: article-layout.11ty.js
 date: 2020-01-05
 title: "Prettier がファイルパスからパーサを推測するときの情報源"
-tags:
-  - "Prettier"
+tags: post
 ---
 
 Prettier の`.cjs`対応をしようとおもって、すでに対応されている`mjs`とかで grep してもヒットしないからどこに情報持ってるんだろうって思って調べたメモをちょっとちゃんと書いたものです。
@@ -34,7 +33,7 @@ $ prettier foo.js
 
 `.cjs`も JavaScript としてパースしたいファイル拡張子の一つなのですが、現時点で Prettier は対応していませんでした。(`.mjs`は対応しています。)
 
-```sh
+```shell
 $ prettier test.mjs
 console.log("Hello, ECMAScript Modules!");
 

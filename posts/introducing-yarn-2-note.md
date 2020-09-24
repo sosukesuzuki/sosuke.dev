@@ -1,9 +1,8 @@
 ---
-path: "/posts/introducing-yarn-2note"
+layout: article-layout.11ty.js
 date: 2020-01-25
 title: "Introducing Yarn 2 ! メモ"
-tags:
-  - "yarn"
+tags: post
 ---
 
 https://dev.to/arcanis/introducing-yarn-2-4eh1

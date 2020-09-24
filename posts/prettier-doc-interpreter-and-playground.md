@@ -1,9 +1,8 @@
 ---
-path: "/posts/prettier-doc-interpreter-and-playground"
+layout: article-layout.11ty.js
 date: 2020-06-09
 title: "Prettier の中間表現 Doc をシュッと試せる JavaScript のサブセットを作ってブラウザで動かす"
-tags:
-  - "Prettier"
+tags: post
 ---
 
 - https://github.com/sosukesuzuki/prettier-doc-interpreter
@@ -22,7 +21,7 @@ Prettier ではコードを整形する過程で Doc という中間表現を使
 
 そして変換された文字列を返します。
 
-![prettier-flow](./prettier-flow.png)
+![prettier-flow](/img/prettier-flow.png)
 
 ## Doc の作り方と形
 
@@ -82,7 +81,7 @@ Doc を生成するための式(e.g. `group(concat(["foo", hardline, "bar"]))`)�
 
 まだちょっとバギーだし機能不足なんですが...。
 
-```sh
+```shell
 $ npm install prettier-doc-interpreter
 ```
 

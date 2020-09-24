@@ -1,10 +1,8 @@
 ---
-path: "/posts/my-first-release-prettier"
+layout: article-layout.11ty.js
 date: 2020-08-31
 title: "はじめて自分で Prettier をリリースした"
-tags:
-  - "Prettier"
-  - "OSS"
+tags: post
 ---
 
 先日 Prettier のバージョン 2.1 をリリースしました。いままでコミット権限をもらってから１年ほど経ちますが自分でリリースをしたのははじめてでした。
