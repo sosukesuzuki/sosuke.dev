@@ -1,18 +1,15 @@
 ---
-path: "/posts/dprint-is-fast"
+layout: article-layout.11ty.js
 date: 2020-05-25
 title: "Deno に採用されたコードフォーマッター dprint が速い"
-tags:
-  - "Prettier"
-  - "Deno"
-  - "dprint"
+tags: post
 ---
 
 Deno では以下のようにサブコマンドを実行することで、ソースコードのフォーマットをすることができます。
 
 ref: https://deno.land/manual/tools/formatter
 
-```sh
+```shell
 $ deno fmt example.ts
 ```
 
@@ -37,7 +34,7 @@ MacBook Pro (13-inch, 2019, Four Thunderbolt 3 ports)
 
 以下のような形のディレクトリを作り、`dprint`と`prettier`をローカルインストールします。`/repositories`下には https://github.com/prettier/prettier と https://github.com/mictosoft/typescript がクローンされています。`dprint.config.js` と `prettierrc` はデフォルトのままにします。
 
-```
+```shell
 .
 ├── dprint.config.js
 ├── package.json
@@ -53,12 +50,12 @@ MacBook Pro (13-inch, 2019, Four Thunderbolt 3 ports)
 
 まず、そこまでコード量が多くない https://github.com/prettier/prettier の `/src` ディレクトリ下の JavaScript ファイルを対象にして時間を計測してみます。
 
-```
+```shell
 対象ファイル数: 117
 対象コード行数: 29205
 ```
 
-```
+```shell
 $  hyperfine "./node_modules/.bin/dprint \"repositories/prettier/src/**/**/*.js\"" "./node_modules/.bin/prettier \"repositories/prettier/src/**/**/*.js\" --write" --ignore-failure
 Benchmark #1: ./node_modules/.bin/dprint "repositories/prettier/src/**/**/*.js"
   Time (mean ± σ):      1.209 s ±  0.206 s    [User: 4.046 s, System: 0.139 s]
@@ -75,7 +72,7 @@ Summary
 
 平均値を見てみます。
 
-```
+```shell
 dprint: 1.209 s
 prettier: 2.519 s
 ```
@@ -84,12 +81,12 @@ prettier: 2.519 s
 
 少し大きめのコードでも試すために、 https://github.com/microsoft/typescript の `/src` 下の TypeScript ファイルに対してもやってみます。
 
-```
+```shell
 対象ファイル数: 430
 対象コード行数: 438366
 ```
 
-```
+```shell
 $  hyperfine "./node_modules/.bin/dprint \"repositories/TypeScript/src/**/**/*.ts\"" "./node_modules/.bin/prettier \"repositories/TypeScript/src/**/**/*.ts\" --write" --ignore-failure
 Benchmark #1: ./node_modules/.bin/dprint "repositories/TypeScript/src/**/**/*.ts"
   Time (mean ± σ):      5.295 s ±  0.143 s    [User: 7.884 s, System: 0.213 s]
@@ -108,7 +105,7 @@ Summary
 
 平均値を見てみます。
 
-```
+```shell
 dprint: 5.295 s
 prettier: 22.387 s
 ```
