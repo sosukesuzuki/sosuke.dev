@@ -11,6 +11,7 @@ exports.render = function (data) {
       <link rel="stylesheet" href="/styles/styles.css">
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;900&display=swap" rel="stylesheet">
       <link href="/styles/prism-dracula.css" rel="stylesheet">
+      <link rel="shortcut icon" href="/img/favicon.ico">
       <title>${data.title}</title>
     </head>
     <body>
