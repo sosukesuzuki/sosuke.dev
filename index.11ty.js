@@ -1,10 +1,12 @@
 const { format } = require("date-fns");
+const { readCSSFiles } = require("./utils");
 
 module.exports = class {
   data() {
     return {
       title: "sosuke.dev",
       layout: "layout.11ty.js",
+      css: readCSSFiles(["/styles/top.css"]),
     };
   }
   render({ collections }) {

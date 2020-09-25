@@ -116,30 +116,6 @@ main {
   margin: 0 auto;
   word-wrap: break-word;
 }
-.blog-post-item {
-  font-size: 15px;
-  font-weight: normal;
-  margin: 5px 0;
-}
-.date-text {
-  color: gray;
-}
-.profile {
-  display: flex;
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
-.profile h2,
-p {
-  margin: 0;
-  font-size: 15px;
-}
-.profile img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
 
 /* Footer styles */
 footer {
