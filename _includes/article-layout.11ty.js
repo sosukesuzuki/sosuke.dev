@@ -9,5 +9,5 @@ exports.data = {
 exports.render = function (data) {
   return `<p class="date-text">${format(data.date, "MMMM, dd yyyy")}</p>
     <h1>${data.title}</h1>
-    <div>${data.content}</div>`;
+    <div class="markdown-body">${data.content}</div>`;
 };
