@@ -12,14 +12,6 @@ title: "sosuke.dev"
 - Twitter: [@\_\_sosukesuzuki](https://twitter.com/__sosukesuzuki)
 - GitHub: [@sosukesuzuki](https://github.com/sosukesuzuki)
 - ブログ: https://sosuke.dev
-
-## 職歴
-
-- 2020/06 ~ 現在 サイボウズ フロントエンドエキスパートチーム(業務委託)
-- 2018/12 ~ 2020/05: [Ubie, inc](https://ubie.life)(インターン(業務委託))
-- 2017/01 ~ 2018/12: [BoostIO, inc](https://boostio.co)(アルバイト)
-
-## OSS
-
-- 2019/5 ~ 現在: [Prettier](https://github.com/prettier/prettier)
-- 2017/1 ~ 2018/12: [Boostnote](https://github.com/BoostIO/Boostnote)
+- 本業: 筑波大学情報学群情報科学類2年次
+- 副業: [サイボウズ フロントエンドエキスパートチーム](https://blog.cybozu.io/entry/2019/08/05/190000)
+- OSS: [Prettier](https://github.com/prettier/prettier) メンテナー
