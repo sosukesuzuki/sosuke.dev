@@ -24,12 +24,6 @@ import json from "./foo.json" assert { type: "json" };
 
 `import json from "./foo.json"` までは従来の import 文と同様の形をとっている。その直後にある `assert { type: "json" }` の部分が Import Assertions だ。この例では import されるモジュールが JSON module であることを示している。
 
-また、Import Assertions は dynamic import に対しても使うことができる。その場合は、関数呼び出しの第2引数のように詳細情報を指定する。
-
-```js
-import("foo.json", { assert: { type: "json" } });
-```
-
 ちなみに、[JSON module](https://github.com/tc39/proposal-json-modules) というのは Import Assertions とは別の Stage 2 の ECMAScript のプロポーザルである。もともとは Import Assertions のプロポーザルに含まれていたが、個別のプロポーザルとして分離された。
 
 JSON をどのようにモジュールとして扱うかを、それぞれの環境(例えばウェブブラウザ、Node.js、webpack 等)に実装させる自由を与えるのではなく、仕様として定めることで ECMAScript の仕様に準拠したすべての場所で一貫して動作させることを目的としている。
@@ -46,4 +40,24 @@ Import Assertions の話題とはそれてしまうのでここでは JSON modul
 import json from "./foo.json" assert { type: "json" };
 ```
 
-この`assert`の構文が中括弧を採用したのには二つの理由がある。一つは、JavaScript を使う開発者はすでにオブジェクトリテラルの記法に慣れているため。もう一つは、
+この Import Aserttions が中括弧を採用したのには二つの理由がある。一つは、JavaScript を使う開発者はすでにオブジェクトリテラルの記法に慣れているため。もう一つは、将来的に`assert`以外の属性を指定できるようになる可能性があり、その場合に様々な属性に対してグルーピングを行うためである。以下の例を見てほしい。
+
+```js
+import json from "./foo.json" assert { type: "json" } with { transformA: "value" };
+```
+
+この例では、`assert { type: "json" }` の後ろに `with { transformA: "value" }` という他の属性が続いている。この`with`という属性は現在の Import Assertions の仕様には含まれてはいない。しかし、将来的にこういった他の属性が追加されることが想定されている。このとき中括弧を使ったオブジェクトリテラルのような構文のおかげでそれぞれが属性に対応するグループだということがわかる。
+
+Import Assertions は `import` のみではなく `export` に対しても使うことができる。
+
+```js
+export { val } from './foo.js' assert { type: "javascript" };
+```
+
+しかし、現在 Babel 7.12 ではシンタックスエラーとして扱われてしまう。
+
+また、Import Assertions は dynamic import もサポートしている。その場合、関数の第 2 引数にオブジェクトリテラルを渡すようにして指定する。
+
+```js
+import("foo.json", { assert: { type: "json" } });
+```
