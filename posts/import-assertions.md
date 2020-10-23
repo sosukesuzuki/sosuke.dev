@@ -11,7 +11,7 @@ Import Assertions は現在 Stage 3 の ECMAScript のプロポーザルであ�
 
 Babel では 先日リリースされた [7.12 から Import Assertions を使えるようになった](https://babeljs.io/blog/2020/10/15/7.12.0#import-assertions-parsing-12139httpsgithubcombabelbabelpull12139)。
 
-この記事では Import Assertions について解説する。
+この記事では現時点での Import Assertions について解説する。
 
 ## 概要
 
@@ -81,9 +81,9 @@ import json from "./foo.json";
 import foo from "./foo.json";
 ```
 
-しかし、宛先のサーバーで MIME type が変更されたり、宛先のサーバーが悪意を持った攻撃にさらされたりした場合に意図せずなにかを実行してしまう可能性がある。
+しかし、宛先のサーバーで MIME タイプが変更されたり、宛先のサーバーが悪意を持った攻撃にさらされたりした場合に意図せずなにかを実行してしまう可能性がある。
 
-この問題に対する解決策として Import Assertions が ECMAScript に提案されることになった。Import Assertions では、import する側が import される側のコンテンツをどのように解析するべきかを指定できるため、そのような問題を防ぐことができる。
+この問題に対する解決策として Import Assertions が ECMAScript に提案されることになった(当初は Module Attributes という名前だった)。Import Assertions では、import する側が import される側のコンテンツをどのように解析するべきかを指定できるため、そのような問題を防ぐことができる。
 
 ちなみに、もとの仕様は現在では[whatwg/html からリバートされている](https://github.com/whatwg/html/pull/4943)。
 
@@ -91,6 +91,4 @@ import foo from "./foo.json";
 
 現在 Stage 3 であるため、よほどのことがない限り ECMAScript に正式に含まれることになるだろう。実際、[TypeScript](https://github.com/microsoft/TypeScript/issues/40694) や [Deno](https://github.com/denoland/deno/issues/7623) ではすでに実装が検討されている。
 
-更に詳細が気になる場合は https://github.com/tc39/proposal-import-assertions を見ると良いだろう。
-
-また、Babel での実装について詳しく知りたい場合は https://github.com/babel/babel/pull/12139 を見ると良いだろう。
+更に詳細が気になる場合は https://github.com/tc39/proposal-import-assertions を見てほしい。
