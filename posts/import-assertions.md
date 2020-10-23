@@ -1,7 +1,7 @@
 ---
 layout: article-layout.11ty.js
 date: 2020-10-17
-title: "Import Assertions とは何なのか"
+title: "JavaScript の Import Assertions について"
 tags: post
 ---
 
@@ -15,7 +15,7 @@ Babel では 先日リリースされた [7.12 から Import Assertions を使�
 
 ## 概要
 
-このプロポーザルは従来の import 文 にインラインの構文を追加し、モジュール指定子とは別に詳細情報を指定することを可能にする。主に想定される用途は JavaScript 以外のタイプのモジュールのサポートだ。
+このプロポーザルは従来の import 文 にインラインの構文を追加し、モジュール指定子とは別に詳細情報の指定を可能にする。主に想定される用途は JavaScript 以外のタイプのモジュールのサポートだ。
 
 Import Assertions で追加される構文を使って JSON modules を import する例を考える。
 
