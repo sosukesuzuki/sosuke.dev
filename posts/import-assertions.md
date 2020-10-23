@@ -1,6 +1,6 @@
 ---
 layout: article-layout.11ty.js
-date: 2020-10-17
+date: 2020-10-24
 title: "JavaScript の Import Assertions について"
 tags: post
 ---
