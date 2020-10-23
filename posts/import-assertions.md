@@ -27,9 +27,9 @@ import json from "./foo.json" assert { type: "json" };
 
 ちなみに、[JSON modules](https://github.com/tc39/proposal-json-modules) というのは Import Assertions とは別の Stage 2 の ECMAScript のプロポーザルである。もともとは Import Assertions のプロポーザルに含まれていたが、個別のプロポーザルとして分離された。
 
-JSON modules は JSON のモジュールとしての扱いを統一することを目的としている。現状では、それぞれの環境(例えば webpack や Node.js など)が JSON の扱いを自由に実装することができる。そこで JSON modules を仕様として定めることで、ECMAScript の仕様の準拠したすべての場所で一貫して動作させることが可能になる。
+JSON modules は JSON のモジュールとしての扱いを統一することを目的としている。現状では、それぞれの環境(例えば webpack や Node.js など)が JSON のモジュールとしての扱いを自由に実装することができる。そこで JSON modules を仕様として定めることで、ECMAScript の仕様の準拠したすべての場所で一貫して動作させることが可能になる。
 
-Import Assertions の話題とはそれてしまうのでここでは JSON modules について詳しく解説はしない。
+本題とそれてしまうのでここでは JSON modules について詳しく解説はしない。
 
 ## 構文
 
@@ -41,13 +41,13 @@ Import Assertions の話題とはそれてしまうのでここでは JSON modul
 import json from "./foo.json" assert { type: "json" };
 ```
 
-この Import Aserttions が中括弧を採用したのには二つの理由がある。一つは、JavaScript を使う開発者はすでにオブジェクトリテラルの記法に慣れているため。もう一つは、将来的に`assert`以外の属性を指定できるようになる可能性があり、その場合に様々な属性に対してグルーピングを行うためである。以下の例を見てほしい。
+Import Aserttions がこのような中括弧を使った記法を採用したのには二つの理由がある。一つは、JavaScript を使う開発者はすでにオブジェクトリテラルの記法に慣れているため。もう一つは、将来的に`assert`以外の属性を指定できるようになる可能性があり、その場合に様々な属性に対してグルーピングを行うためである。以下の例を見てほしい。
 
 ```js
 import json from "./foo.json" assert { type: "json" } with { transformA: "value" };
 ```
 
-この例では、`assert { type: "json" }` の後ろに `with { transformA: "value" }` という他の属性が続いている。この`with`という属性は現在の Import Assertions の仕様には含まれてはいない。しかし、将来的にこういった他の属性が追加されることが想定されている。このとき中括弧を使ったオブジェクトリテラルのような構文のおかげでそれぞれが属性に対応するグループだということがわかる。
+この例では、`assert { type: "json" }` の後ろに `with { transformA: "value" }` という他の属性が続いている。この`with`という属性は現在の仕様には含まれてはいない。しかし、将来的にこういった他の属性が別の提案として追加されることが想定されている。このとき中括弧を使ったオブジェクトリテラルのような構文によってそれぞれが属性に対応するグループだということがわかる。
 
 Import Assertions は `import` のみではなく `export` に対しても使うことができる。
 
