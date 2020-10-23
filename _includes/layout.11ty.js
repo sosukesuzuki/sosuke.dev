@@ -35,7 +35,7 @@ exports.render = function (data) {
 
       <meta property=og:type content=article>
       <meta property=og:url content=https://sosuke.dev>
-      <meta property=og:title content=${data.title}>
+      <meta property=og:title content="${data.title}">
       <meta property=og:site_name content=sosuke.dev>
       <meta property=og:description content="${description}">
       <meta property=og:image content=https://sosuke.dev/img/logo.jpeg>
