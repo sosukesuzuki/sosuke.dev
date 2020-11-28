@@ -9,9 +9,9 @@ tags: post
 
 JS Module Blocks は現在 Stage 1 の ECMAScript のプロポーザルである。
 
-2020年11月の TC39 のミーティングで提案され Stage 1 になった。
+2020 年 11 月の TC39 のミーティングで提案され Stage 1 になった。
 
-このプロポーザルはGoogleのエンジニアである[Surma](https://github.com/surma)氏とIgaliaの[
+このプロポーザルは Google のエンジニアである[Surma](https://github.com/surma)氏と Igalia の[
 Daniel Ehrenberg](https://github.com/littledan)氏によって進められている。
 
 この記事では、現在の JS Module Blocks について解説する。なお、現在 Stage 1 であるため今後仕様が変更される可能性は高い。
@@ -50,8 +50,9 @@ const module = await import(m);
 この制約がない場合、例えば次のような変数宣言とブロック文を組み合わせたときの解釈と衝突する。
 
 ```js
-const m = module
-{}
+const m = module;
+{
+}
 ```
 
 このコードは JavaScript の構文として正しいものである([AST Explorer Link](https://astexplorer.net/#/gist/6d4fe3987bd399d0f20fa54670109642/40efab02597e01c3767662497c958effdaf0ab87))。
