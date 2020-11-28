@@ -49,10 +49,10 @@ const module = await import(m);
 
 この制約がない場合、例えば次のような変数宣言とブロック文を組み合わせたときの解釈と衝突する。
 
+<!-- prettier-ignore -->
 ```js
-const m = module;
-{
-}
+const m = module
+{}
 ```
 
 このコードは JavaScript の構文として正しいものである([AST Explorer Link](https://astexplorer.net/#/gist/6d4fe3987bd399d0f20fa54670109642/40efab02597e01c3767662497c958effdaf0ab87))。
