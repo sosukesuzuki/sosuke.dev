@@ -54,5 +54,3 @@ const module = await import(m);
 const m = module
 {}
 ```
-
-このコードは JavaScript の構文として正しいものである([AST Explorer Link](https://astexplorer.net/#/gist/6d4fe3987bd399d0f20fa54670109642/40efab02597e01c3767662497c958effdaf0ab87))。
