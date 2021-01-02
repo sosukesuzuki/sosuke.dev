@@ -4,7 +4,7 @@ const { readCSSFiles } = require("./utils");
 module.exports = class {
   data() {
     return {
-      title: "sosuke.dev",
+      title: "sosukesuzuki.dev",
       layout: "layout.11ty.js",
       css: readCSSFiles(["/styles/top.css"]),
     };
