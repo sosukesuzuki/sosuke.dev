@@ -1,5 +1,22 @@
-const { format } = require("date-fns");
+const { format, getYear } = require("date-fns");
 const { readCSSFiles } = require("./utils");
+
+function getPostsWithYear(posts) {
+  /** @type {Array<any>} */
+  const postsWithYear = [];
+  posts.forEach((post) => {
+    const year = getYear(post.data.date, "yyyy-MM-dd");
+    if (!postsWithYear.find((postWithYear) => postWithYear.year === year)) {
+      postsWithYear.push({ year, posts: [] });
+    }
+    postsWithYear.forEach((postWithYear) => {
+      if (postWithYear.year === year) {
+        postWithYear.posts.push(post);
+      }
+    });
+  });
+  return postsWithYear;
+}
 
 module.exports = class {
   data() {
@@ -10,6 +27,10 @@ module.exports = class {
     };
   }
   render({ collections }) {
+    const posts = collections.post.sort((a, b) =>
+      a.date > b.date ? -1 : a.date < b.date ? 1 : 0
+    );
+    const postsWithYear = getPostsWithYear(posts);
     return `<div>
       <div class="profile">
         <img src="/img/logo.jpeg" alt="sosukesuzuki">
@@ -21,16 +42,19 @@ module.exports = class {
         </div>
       </div>
       <div>
-        ${collections.post
-          .sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
-          .map(
-            (post) =>
-              `<h3 class="blog-post-item">
-                ${format(post.data.date, "yyyy-MM-dd")}: <a href=${post.url}>${
-                post.data.title
-              }</a>
-              </h3>`
-          )
+        ${postsWithYear
+          .map((postWithYear) => {
+            return `<h2>${postWithYear.year}</h2>
+            ${postWithYear.posts
+              .map((post) => {
+                return `<h3 class="blog-post-item">
+              ${format(post.data.date, "yyyy-MM-dd")}: <a href=${post.url}>${
+                  post.data.title
+                }</a>
+            </h3>`;
+              })
+              .join("\n")}`;
+          })
           .join("\n")}
         </div>
      </div>`;
