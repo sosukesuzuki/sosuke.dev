@@ -49,7 +49,7 @@ Module Fragments は主に webpack や Rollup や Parcel などのモジュー�
 
 現在では多くの開発者が ECMAScript Modules(ESM) を使って開発を行っている。数年前まではウェブブラウザがモジュールシステムを解釈できなかったため、モジュールバンドラーを使ってモジュールシステムをエミュレートして単一(もしくは複数)の JavaScript ファイルを出力するのがウェブ開発の主流になった。しかし多くのウェブブラウザが ESM を実装した現在でも、読み込み時のコストなどの実行効率の懸念からモジュールバンドラーが広く使われている。
 
-しかしながら、モジュールバンドラーは ESM のセマンティクスを完全エミュレートする必要があるため、その実装がかなり複雑になってしまう。また、ESM に関連する仕様はこれからも増えていくことが予想される。たとえば、[top-level await](https://github.com/tc39/proposal-top-level-await)や[Import Assertions](https://github.com/tc39/proposal-import-assertions)などのモジュールに関する仕様が ECMAScript に追加されるたびに各モジュールバンドラーはそれらをエミュレートするための実装を行う必要がある。
+しかしながら、モジュールバンドラーは ESM のセマンティクスを完全にエミュレートする必要があるため、その実装がかなり複雑になってしまう。また、ESM に関連する仕様はこれからも増えていくことが予想される。たとえば、[top-level await](https://github.com/tc39/proposal-top-level-await)や[Import Assertions](https://github.com/tc39/proposal-import-assertions)などのモジュールに関する仕様が ECMAScript に追加されるたびに各モジュールバンドラーはそれらをエミュレートするための実装を行う必要がある。
 
 さらに V8 や JavaScriptCore などの実際にウェブブラウザなどで動作する JavaScript エンジンは、バンドルされたあとのコードを実行することになるので開発者が記述したままのモジュール構造を見ることができない。そのためモジュールの構造を利用した最適化ができずパフォーマンスに悪影響を及ぼすことがある。
 
@@ -82,7 +82,7 @@ const m = module {};
 module "#m" {}
 ```
 
-`module` キーワードのあとに続くモジュール指定子を表す文字列は HTML の場合は `#` から始まる URL フラグメントで使える文字列である必要がある(つまり ASCII 文字列)。この指定子を使って絶対または相対 URL として Module Fragments で定義されたモジュールを import できる。
+Module Fragments が実行されるランタイムがブラウザの場合、`module` キーワードのあとに続くモジュール指定子を表す文字列は `#` から始まる URL フラグメントで使える文字列である必要がある(つまり ASCII 文字列)。この指定子を使って絶対または相対 URL として Module Fragments で定義されたモジュールを import できる。
 
 ```js
 // In https://example.com/bundle.js
@@ -100,7 +100,7 @@ module "#counts" {
 import { count } from "https://example.com/bundle.js#counts";
 ```
 
-なおこれは ECMAScript の仕様ではなく HTML に限定された規則である。そのため、例えば Node.js や Deno などの別のホストがこれに従う必要はない。しかし、それらのホストでも必要に応じてこの規則に従うことが推奨されている。
+なおこれは ECMAScript の仕様ではなくブラウザに限定された規則である。そのため、例えば Node.js や Deno などの別のホストがこれに従う必要はない。しかし、それらのホストでも必要に応じてこの規則に従うことが推奨されている。
 
 ## おわりに
 
