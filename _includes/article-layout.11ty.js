@@ -8,7 +8,9 @@ module.exports = {
   },
   render: function (data) {
     return `<p class="date-text">${format(data.date, "MMMM, dd yyyy")}</p>
+    <div class="post">
       <h1>${data.title}</h1>
-      <div class="markdown-body">${data.content}</div>`;
+      <div>${data.content}</div>
+    </div>`;
   },
 };
