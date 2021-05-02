@@ -110,7 +110,7 @@ someOperation(USER_NAMES.sorted());
 
 ## 経緯
 
-Change Array by copy プロポーザルが生まれた経緯には、現在 Stage 2 の Records and Tuples という別のプロポーザルが関係している。
+Change Array by copy プロポーザルが生まれた経緯には、現在 Stage 2 の [Records and Tuples](https://github.com/tc39/proposal-record-tuple) という別のプロポーザルが関係している。
 
 Records and Tuples は簡単にいえば、イミュータブルなオブジェクトと配列のようなデータ構造である Record と Tuple を導入するプロポーザルである。
 
