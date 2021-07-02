@@ -65,7 +65,8 @@ for (const prop in foo) {
 
 これを実行すると、次のように`prop2`も表示される。
 
-```
+<!-- prettier-ignore -->
+```js
 prop1
 prop2
 ```
@@ -107,7 +108,8 @@ for (const prop in foo) {
 
 このコードを実行すると、次のように継承された`prop2`も表示されてしまう。
 
-```
+<!-- prettier-ignore -->
+```js
 prop1
 hasOwnProperty
 prop2
