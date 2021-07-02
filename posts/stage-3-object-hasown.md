@@ -115,7 +115,14 @@ hasOwnProperty
 prop2
 ```
 
-これを避けるため、多くの場合次のようにして必ず `Object.prototype.hasOwnProperty` を参照するパターンがよく知られている。
+また、たとえば`Object.create(null)`で生成されたオブジェクトには`hasOwnProperty`が存在しない。
+
+```js
+Object.create(null).hasOwnProperty("foo");
+// Uncaught TypeError: Object.create(...).hasOwnProperty is not a function
+```
+
+このようなことを避けるため、多くの場合次のようにして必ず `Object.prototype.hasOwnProperty` を参照するパターンがよく知られている。
 
 ```js
 Object.prototype.hasOwnProperty.call(foo, key);
