@@ -35,7 +35,7 @@ if (Object.hasOwn(object, "foo")) {
 
 ## 経緯とモチベーション
 
-`Object.prototype.hasOwnProperty` はライブラリ開発者であれば使ったことがあるだろう。
+`Object.prototype.hasOwnProperty` は使ったことがあるだろう。
 
 たとえば、for in 等でオブジェクトのプロパティを走査するときに意図しないものを参照しないために使うことがある。
 
@@ -75,7 +75,7 @@ prop2
 
 そのような懸念から、for in を使う場合には`Object.prototype.hasOwnProperty` 等を使ってガードすることが多い。`Object.prototype.hasOwnProperty`を使えば、プロトタイプをさかのぼらずにそのオブジェクトに特定のプロパティが存在するかどうかを確かめることができる。
 
-なので、次のように`hasOwnProperty`を使うことで継承されている`prop2`を除いて`foo`に存在する`prop1`だけを表示することができる。
+なので、次のように`hasOwnProperty`を使うことで、継承されている`prop2`を除いて`foo`に存在する`prop1`だけを表示することができる。
 
 ```js
 Object.prototype.prop2 = 2;
@@ -122,7 +122,7 @@ Object.create(null).hasOwnProperty("foo");
 // Uncaught TypeError: Object.create(...).hasOwnProperty is not a function
 ```
 
-このようなことを避けるため、多くの場合次のようにして必ず `Object.prototype.hasOwnProperty` を参照するパターンがよく知られている。
+このようなことを避けるため多くの場合次のようにして、必ず `Object.prototype.hasOwnProperty` を参照するパターンがよく使われている。
 
 ```js
 Object.prototype.hasOwnProperty.call(foo, key);
@@ -132,7 +132,7 @@ Object.prototype.hasOwnProperty.call(foo, key);
 
 ESLint にはそれを強制するためのルールが存在する(参照: https://eslint.org/docs/rules/guard-for-in)。
 
-このパターンはよく知られており、ESLint のルールの存在もあって浸透しているように思う。しかし、記述量が多くなる上に直感的でない。さらにこのパターンを理解するためには、[`Function.prototype.call`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/call)や、現在ではあまり使われなくなったプロトタイプについての理解が求められるため、JavaScript 初心者にとってややハードルが高いようにも思う。
+このパターンはよく知られており、ESLint のルールの存在もあって浸透しているように思う。しかし、記述量が多くなる上に直感的でない。さらに、このパターンを理解するためには、[`Function.prototype.call`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/call)や、現在ではあまり使われなくなったプロトタイプについての理解が求められるため、JavaScript 初心者にとってはややハードルが高いようにも思う。
 
 そこで、`Object`のスタティックメソッドとして同等の機能を実装することで、使いやすくしようというのが Object.hasOwn プロポーザルの目的である。
 
@@ -155,11 +155,9 @@ JavaScript には [Reflect](https://developer.mozilla.org/ja/docs/Web/JavaScript
 
 プロポーザルにとって本質的なことではないが、このプロポーザルは異様な速さで Stage を進んでいる。
 
-2021 年 4 月の TC39 のミーティングで初めて議題にあがり、そのミーティング内で Stage 1 を飛ばしていきなり Stage 2 になった。
+2021 年 4 月の TC39 のミーティングで初めて議題にあがり、そのミーティング内で Stage 1 を飛ばしていきなり Stage 2 になった。そして、2021 年 5 月の TC39 ミーティングでは Stage 3 になった。
 
-さらに、2021 年 5 月の TC39 ミーティングでは Stage 3 になった。
-
-現在では、V8 と SpiderMonkery ではすでにフラグ付きで実装されている。
+現在 V8 と SpiderMonkery ではすでにフラグ付きで実装されている。
 
 2021 年 7 月のミーティングでも、"Accessible Object hasOwnProperty update" として議題にあがる予定だ。
 
@@ -167,6 +165,6 @@ JavaScript には [Reflect](https://developer.mozilla.org/ja/docs/Web/JavaScript
 
 ## おわりに
 
-数年前 JavaScript を始めたころ `Object.prototype.hasOwnProperty.call(foo, key);` というコードを見て困惑したことがある身としては、よく使われるこのパターンが言語に入ってくれるのは喜ばしいことだと考えている。
+数年前 JavaScript を始めたころ `Object.prototype.hasOwnProperty.call` を使ったコードを見て困惑したことがある身としては、よく使われるこのパターンが言語に入ってくれるのは喜ばしいことだと考えている。
 
 また、Stage を駆け上がっていく様を見るのも楽しいので、今後も注目しておきたいプロポーザルの一つである。
