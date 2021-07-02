@@ -154,7 +154,7 @@ JavaScript には [Reflect](https://developer.mozilla.org/ja/docs/Web/JavaScript
 
 現在では、V8 と SpiderMonkery ではすでにフラグ付きで実装されている。
 
-2021 年 7 月のミーティングでも、"Accessible Object hasOwnProperty update" で議題にあがる予定だ。
+2021 年 7 月のミーティングでも、"Accessible Object hasOwnProperty update" として議題にあがる予定だ。
 
 このままいけば ES2022 に入る可能性もあるだろう。
 
