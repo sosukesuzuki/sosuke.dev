@@ -125,7 +125,7 @@ Object.prototype.hasOwnProperty.call(foo, key);
 
 ESLint にはそれを強制するためのルールが存在する(参照: https://eslint.org/docs/rules/guard-for-in)。
 
-このパターンはよく知られており、ESLint のルールの存在もあって浸透しているように思う。しかし、記述量が多くなる上に直感的でなく面倒くさい。さらにこのパターンを理解するためには、[`Function.prototype.call`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/call)や、現在ではあまり使われなくなったプロトタイプについての理解が求められるため、JavaScript 初心者にとってややハードルが高いようにも思う。
+このパターンはよく知られており、ESLint のルールの存在もあって浸透しているように思う。しかし、記述量が多くなる上に直感的でない。さらにこのパターンを理解するためには、[`Function.prototype.call`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/call)や、現在ではあまり使われなくなったプロトタイプについての理解が求められるため、JavaScript 初心者にとってややハードルが高いようにも思う。
 
 そこで、`Object`のスタティックメソッドとして同等の機能を実装することで、使いやすくしようというのが Object.hasOwn プロポーザルの目的である。
 
