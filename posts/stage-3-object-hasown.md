@@ -71,11 +71,11 @@ prop1
 prop2
 ```
 
-「そんなコード書かないよ」と思うかもしれないが、依存の奥深くのライブラリに `Object.prototype` を更新するコードが入っていたらどうだろうか（そのようなライブラリは使いたくはないが）。
+「そんなコード書かないよ」という人もいるだろう。しかし、依存の奥深くのライブラリに `Object.prototype` を更新するコードが入っていたらどうだろうか。
 
-そのような懸念から、for in を使う場合には`Object.prototype.hasOwnProperty` 等を使ってガードすることが多い。`Object.prototype.hasOwnProperty`を使えば、プロトタイプをさかのぼらずにそのオブジェクトに特定のプロパティが存在するかどうかを確かめることができる。
+そのような懸念から、for in を使う場合には`Object.prototype.hasOwnProperty` 等を使ってガードすることが多い。`Object.prototype.hasOwnProperty`を使えば、プロトタイプをさかのぼることなく、そのオブジェクトに特定のプロパティが存在するかどうかを確かめることができる。
 
-なので、次のように`hasOwnProperty`を使うことで、継承されている`prop2`を除いて`foo`に存在する`prop1`だけを表示することができる。
+なので、次のように`hasOwnProperty`を使うことで、継承されている`prop2`を除いて`foo`に存在する`prop1`だけを表示できる。
 
 ```js
 Object.prototype.prop2 = 2;
@@ -89,7 +89,7 @@ for (const prop in foo) {
 }
 ```
 
-しかし、実際には`foo`に必ず`hasOwnProperty`が存在するという保証はない。`hasOwnProperty`自体を上書きすることができるからだ。
+しかし、実際には`foo`に必ず`hasOwnProperty`が存在するという保証はない。なぜなら、`hasOwnProperty`自体を上書きできるからだ。
 
 ```js
 Object.prototype.prop2 = 2;
@@ -130,9 +130,10 @@ Object.prototype.hasOwnProperty.call(foo, key);
 
 ```
 
-ESLint にはそれを強制するためのルールが存在する(参照: https://eslint.org/docs/rules/guard-for-in)。
+ESLint にはそれを強制するためのルールが存在する（ 参照: https://eslint.org/docs/rules/guard-for-in ）。
 
-このパターンはよく知られており、ESLint のルールの存在もあって浸透しているように思う。しかし、記述量が多くなる上に直感的でない。さらに、このパターンを理解するためには、[`Function.prototype.call`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/call)や、現在ではあまり使われなくなったプロトタイプについての理解が求められるため、JavaScript 初心者にとってはややハードルが高いようにも思う。
+このパターンはよく知られており、ESLint のルールの存在もあって浸透しているよう。しかし、記述量が多くなる上に直感的でない。
+さらに、このパターンを理解するためには、[`Function.prototype.call`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/call)や、現在ではあまり使われなくなったプロトタイプについての理解が求められる。そのため、JavaScript 初心者にとってはややハードルが高いように感じる。
 
 そこで、`Object`のスタティックメソッドとして同等の機能を実装することで、使いやすくしようというのが Object.hasOwn プロポーザルの目的である。
 
@@ -144,9 +145,15 @@ ESLint にはそれを強制するためのルールが存在する(参照: http
 
 JavaScript には [Reflect](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Reflect) というトップレベルのオブジェクトが存在する。そして、Reflect には Object と同じようなセマンティクスを持つスタティックメソッドがいくつか存在している。さらに Reflect には [`Reflect.has`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Reflect/has) というスタティックメソッドが存在する。`Reflect.has` は `in` 演算子と同じようなセマンティクスを持ち、つまりプロトタイプをさかのぼってプロパティの有無をチェックする。
 
-なので、JavaScript プログラマーから「Reflect と Object には同じようなセマンティクスのメソッドがいくつか生えていて、両方とも `has` が存在するなら、`Object.has` も `Reflect.has` と同じようにプロトタイプをさかのぼりそう」と思われてしまう可能性がある。そこで、`Object.has` ではなく `Object.hasOwn` という名前に変更された。
+なので、JavaScript プログラマーが次のように推測してしまう可能性が高い。
 
-この改名に関する議論は以下のリンクを参照してほしい
+- Reflect と Object には似たセマンティクスのメソッドがいくつか存在する。
+- Reflect には `has` というスタティックメソッドが存在する。
+- ならば、`Object.has` も `Reflect.has` と同じようにプロトタイプをさかのぼるだろう。
+
+このような懸念から、`Object.has` ではなく `Object.hasOwn` という名前に変更された。
+
+この改名に関する議論は以下のリンクを参照してほしい。
 
 - https://github.com/tc39/proposal-accessible-object-hasownproperty/issues/3
 - https://github.com/tc39/notes/blob/master/meetings/2021-04/apr-20.md#objecthas-for-stage-1
@@ -165,6 +172,6 @@ JavaScript には [Reflect](https://developer.mozilla.org/ja/docs/Web/JavaScript
 
 ## おわりに
 
-数年前 JavaScript を始めたころ `Object.prototype.hasOwnProperty.call` を使ったコードを見て困惑したことがある身としては、よく使われるこのパターンが言語に入ってくれるのは喜ばしいことだと考えている。
+筆者自身、数年前に JavaScript を始めたころは `Object.prototype.hasOwnProperty.call` を使ったコードを見て困惑した記憶がある。なので、よく使われるこのパターンが言語に入ってくれるのは喜ばしいことだと考えている。
 
-また、Stage を駆け上がっていく様を見るのも楽しいので、今後も注目しておきたいプロポーザルの一つである。
+また、Stage を駆け上がっていく様を見るのも楽しいので、今後も注目しておきたいプロポーザルの1つである。
