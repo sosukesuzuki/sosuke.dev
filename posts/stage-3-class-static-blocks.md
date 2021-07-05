@@ -78,10 +78,11 @@ class C {
 }
 ```
 
-また、Class Static Blocks はクラス内に閉じているためプライベートなメンバにもアクセスできる。そのため、次のようにしてクラス外からの書き込みはできないが読み込みはできる値を作ることができる。
+また、Class Static Blocks はクラス内に閉じているためプライベートなメンバにもアクセスできる。
 
 ```js
 let getFooOfC;
+let writeFooOfC;
 class C {
   #foo;
   constructor(foo) {
@@ -89,10 +90,14 @@ class C {
   }
   static {
     getFooOfC = (c) => c.#foo;
+    writeFooOfC = (c, v) => { c.#foo = v; }
   }
 }
 const c = new C("private value");
+
 getFooOfC(c); // -> "private value"
+writeFooOfC(c, "updated private value");
+getFooOfC(c); // -> "updated private value"
 
 ```
 
