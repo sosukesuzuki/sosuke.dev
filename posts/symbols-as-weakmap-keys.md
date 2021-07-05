@@ -15,7 +15,7 @@ tags: post
 
 Symbols as WeakMap keys は、WeakMap のキーとしてシンボルを使えるようにするための提案である。
 
-現在の WeakMap では、キーとしてオブジェクトのみを使用することができる。
+現在の WeakMap では、キーとしてオブジェクトのみを使用できる。
 
 ```js
 const weak = new WeakMap();
@@ -102,7 +102,7 @@ const record = #{
 
 これが不便だというのは、容易に想像ができるだろう。
 
-この制限を保ったまま、擬似的に Record や Tuple に関数を保持させるために、Symbols as WeakMap keys を使用することができる。
+この制限を保ったまま、擬似的に Record や Tuple に関数を保持させるために、Symbols as WeakMap keys を使用できる。
 
 シンボルはあくまでイミュータブルなプリミティブな値であるため、Record と Tuple は他のプリミティブな値と同様にシンボルくをプロパティの値として持つことができる。
 
@@ -176,7 +176,7 @@ JavaScript には、well-known なシンボルと呼ばれる特別なシンボ�
 const sym = Symbol("sym");
 ```
 
-`Symbol.for`を使うことで、グローバルシンボルレジストリにシンボルを登録することができる。
+`Symbol.for`を使うことで、グローバルシンボルレジストリにシンボルを登録できる。
 
 ```js
 // グローバルシンボルレジストリに登録される。
@@ -197,14 +197,14 @@ const sym2 = Symbol.for("sym");
 console.log(sym1 === sym2); // true;
 ```
 
-もう一つの静的メソッドである`Symbol.keyFor`は、`Symbol.for`とは逆にシンボルを引数として受け取り、そのシンボルに対応するキーの文字列を返す。
+もう1つの静的メソッドである`Symbol.keyFor`は、`Symbol.for`とは逆にシンボルを引数として受け取り、そのシンボルに対応するキーの文字列を返す。
 
 ```js
 const sym1 = Symbol.for("sym");
 console.log(Symbol.keyFor(sym1)); // sym
 ```
 
-つまり、これらの静的メソッドを使えばどこからでも取得可能なシンボルを作成することができる。
+つまり、これらの静的メソッドを使えばどこからでも取得可能なシンボルを作成できる。
 
 このようなシンボルを WeakMap のキーとして許容するのかというのが論点である。
 

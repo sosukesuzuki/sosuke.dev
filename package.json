@@ -8,7 +8,8 @@
   "scripts": {
     "build": "eleventy",
     "dev": "eleventy --serve",
-    "format": "prettier -w ."
+    "format": "prettier -w .",
+    "lint:text": "textlint posts"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
@@ -16,6 +17,8 @@
     "clean-css": "^4.2.3",
     "date-fns": "^2.16.1",
     "markdown-it": "^11.0.1",
-    "prettier": "2.1.2"
+    "prettier": "2.1.2",
+    "textlint": "^12.0.0",
+    "textlint-rule-preset-ja-technical-writing": "^6.0.0"
   }
 }

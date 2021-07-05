@@ -5,7 +5,7 @@ title: "Deno に採用されたコードフォーマッター dprint が速い"
 tags: post
 ---
 
-Deno では以下のようにサブコマンドを実行することで、ソースコードのフォーマットをすることができます。
+Deno では以下のようにサブコマンドを実行することで、ソースコードのフォーマットをできます。
 
 ref: https://deno.land/manual/tools/formatter
 

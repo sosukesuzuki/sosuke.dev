@@ -11,7 +11,7 @@ Prettier の`.cjs`対応をしようとおもって、すでに対応されて�
 
 ### 1: Prettier はファイル名からパーサーを推測する
 
-Prettier を CLI から使うとき、`parser`オプションを使ってパーサーを指定することができます。
+Prettier を CLI から使うとき、`parser`オプションを使ってパーサーを指定できます。
 
 ```bash
 # パーサーオプションを指定してみる
@@ -31,7 +31,7 @@ $ prettier foo.js
 
 `.js` ファイルはもちろんですが`.jsx` や `.es6` など、JavaScript としてパースしたいファイルが他にもいくつかあります。
 
-`.cjs`も JavaScript としてパースしたいファイル拡張子の一つなのですが、現時点で Prettier は対応していませんでした。(`.mjs`は対応しています。)
+`.cjs`も JavaScript としてパースしたいファイル拡張子の1つなのですが、現時点で Prettier は対応していませんでした。(`.mjs`は対応しています。)
 
 ```shell
 $ prettier test.mjs
@@ -42,13 +42,13 @@ test.cjs[error] No parser could be inferred for file: test.cjs
 ```
 
 (補足)
-一応 `.cjs` について大雑把に解説しておきます。Node.js は CommonJS と ECMAScript Modules という２つのモジュールシステムをサポートしていて、あるファイルがそのどちらのモジュールシステムを使って書かれているのかを Node.js になんらかの方法で伝える必要があります。その方法の一つがファイル拡張子であり、`.cjs`の場合は CommonJS、`.mjs`の場合は ECMAScript Modules となります。詳しく知りたい人は https://nodejs.org/api/esm.html を読んでください。
+一応 `.cjs` について大雑把に解説しておきます。Node.js は CommonJS と ECMAScript Modules という２つのモジュールシステムをサポートしていて、あるファイルがそのどちらのモジュールシステムを使って書かれているのかを Node.js になんらかの方法で伝える必要があります。その方法の1つがファイル拡張子であり、`.cjs`の場合は CommonJS、`.mjs`の場合は ECMAScript Modules となります。詳しく知りたい人は https://nodejs.org/api/esm.html を読んでください。
 
 ## Prettier Plugins
 
 https://prettier.io/docs/en/plugins.html
 
-Prettier にはプラグインという機能があり、コアで対応できていない言語でも外部のプラグインとして対応することができます。
+Prettier にはプラグインという機能があり、コアで対応できていない言語でも外部のプラグインとして対応できます。
 
 例えば、GitHub の Prettier オーガナイゼーション下には https://github.com/prettier/plugin-php や https://github.com/prettier/plugin-ruby といったプラグインが存在しており、コミュニティによって管理されています。
 

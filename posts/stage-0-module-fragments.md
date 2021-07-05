@@ -15,7 +15,7 @@ tags: post
 
 ## 概要
 
-Module Fragments はインラインで JavaScript のモジュールを定義するための構文を導入する提案である。詳細は後述するが、次のような構文を用いて一つのファイル内に複数のモジュールを定義し、import することができる。
+Module Fragments はインラインで JavaScript のモジュールを定義するための構文を導入する提案である。詳細は後述するが、次のような構文を用いて1つのファイル内に複数のモジュールを定義し、import できる。
 
 ```js
 // filename: app.js

@@ -82,7 +82,7 @@ node --experimental-import-meta-resolve ./index.js
 }
 ```
 
-`import.meta.resolve`にはオプショナルな第二引数が存在し、解決元となるファイルの絶対パス URL を指定することができる。デフォルトでは`import.meta.url`が指定されている。つまり、デフォルトでは`import.meta.resolve`が実行されるファイルの URL が指定されている。
+`import.meta.resolve`にはオプショナルな第二引数が存在し、解決元となるファイルの絶対パス URL を指定できる。デフォルトでは`import.meta.url`が指定されている。つまり、デフォルトでは`import.meta.resolve`が実行されるファイルの URL が指定されている。
 
 この第二引数を使うことで現在実行中ではないファイルをもとに解決されたモジュールの URL を取得できる。
 

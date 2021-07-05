@@ -27,7 +27,7 @@ import json from "./foo.json" assert { type: "json" };
 
 ちなみに、[JSON modules](https://github.com/tc39/proposal-json-modules) というのは Import Assertions とは別の Stage 2 の ECMAScript のプロポーザルである。もともとは Import Assertions のプロポーザルに含まれていたが、個別のプロポーザルとして分離された。
 
-JSON modules は JSON のモジュールとしての扱いを統一することを目的としている。現状では、それぞれの環境(例えば webpack や Node.js など)が JSON のモジュールとしての扱いを自由に実装することができる。そこで JSON modules を仕様として定めることで、ECMAScript の仕様の準拠したすべての場所で一貫して動作させることが可能になる。
+JSON modules は JSON のモジュールとしての扱いを統一することを目的としている。現状では、それぞれの環境(例えば webpack や Node.js など)が JSON のモジュールとしての扱いを自由に実装できる。そこで JSON modules を仕様として定めることで、ECMAScript の仕様の準拠したすべての場所で一貫して動作させることが可能になる。
 
 本題とそれてしまうのでここでは JSON modules について詳しく解説はしない。
 
@@ -41,7 +41,7 @@ JSON modules は JSON のモジュールとしての扱いを統一すること�
 import json from "./foo.json" assert { type: "json" };
 ```
 
-Import Aserttions がこのような中括弧を使った記法を採用したのには二つの理由がある。一つは、JavaScript を使う開発者はすでにオブジェクトリテラルの記法に慣れているため。もう一つは、将来的に`assert`以外の属性を指定できるようになる可能性があり、その場合に様々な属性に対してグルーピングを行うためである。以下の例を見てほしい。
+Import Aserttions がこのような中括弧を使った記法を採用したのには2つの理由がある。1つは、JavaScript を使う開発者はすでにオブジェクトリテラルの記法に慣れているため。もう1つは、将来的に`assert`以外の属性を指定できるようになる可能性があり、その場合に様々な属性に対してグルーピングを行うためである。以下の例を見てほしい。
 
 ```js
 import json from "./foo.json" assert { type: "json" } with { transformA: "value" };

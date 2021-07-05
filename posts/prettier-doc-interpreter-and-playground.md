@@ -62,7 +62,7 @@ const doc = group(concat(["foo", hardline, "bar"]));
 }
 ```
 
-このオブジェクトを`printDocToString`という関数に渡すと文字列に変換することができます。
+このオブジェクトを`printDocToString`という関数に渡すと文字列に変換できます。
 
 ```js
 const { formatted } = printDocToString(doc);

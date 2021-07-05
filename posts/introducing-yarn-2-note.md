@@ -53,7 +53,7 @@ https://dev.to/arcanis/introducing-yarn-2-4eh1
 ### `yarn workspaces foreach`
 
 - yarn workspaces foreach run build` みたいなことができるようになるらしい。
-- [オプション](https://next.yarnpkg.com/cli/workspaces/foreach)で、並列実行するかとかスキップするワークスペースを選んだりすることができる。
+- [オプション](https://next.yarnpkg.com/cli/workspaces/foreach)で、並列実行するかとかスキップするワークスペースを選んだりできる。
 
 ### `patch:`プロトコル
 
