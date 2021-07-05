@@ -80,7 +80,7 @@ Record と Tuple の構文は、ぞれぞれオブジェクトリテラルと配
 
 ```js
 const record = #{ x: 1, y: 2 };
-const tuple = #[1, 2, 3]
+const tuple = #[1, 2, 3];
 ```
 
 このとき`record`と`tuple`の中身はイミュータブルになっており、あとから変更することはできない。
@@ -93,7 +93,11 @@ const tuple = #[1, 2, 3]
 
 ```js
 // 関数はオブジェクトであり、Recordはオブジェクトを持てないのでこれはできない
-const record = #{ func: () => { console.log("foo")} };
+const record = #{
+  func: () => {
+    console.log("foo");
+  },
+};
 ```
 
 これが不便だというのは、容易に想像ができるだろう。
@@ -104,7 +108,7 @@ const record = #{ func: () => { console.log("foo")} };
 
 ```js
 // シンボルはプリミティブな値なので Record はプロパティの値としてシンボル持つことができる。
-const record = #{ x: Symbol("foo") }
+const record = #{ x: Symbol("foo") };
 ```
 
 つまり、Record にはシンボルをもたせておき、そのシンボルを使って WeakMap から関数を取得するようなことは可能なのだ。
@@ -113,7 +117,9 @@ const record = #{ x: Symbol("foo") }
 const weak = new WeakMap();
 
 const key = Symbol("function key");
-weak.set(key, () => { console.log("HI!!"); });
+weak.set(key, () => {
+  console.log("HI!!");
+});
 
 const record = #{ x: key };
 
@@ -124,21 +130,23 @@ weak.get(record.x)(); // HI!!
 
 ```js
 class RefBookkeeper {
-    #references = new WeakMap();
-    ref(obj) {
-        const sym = Symbol();
-        this.#references.set(sym, obj);
-        return sym;
-    }
-    deref(sym) {
-      return this.#references.get(sym);
-    }
+  #references = new WeakMap();
+  ref(obj) {
+    const sym = Symbol();
+    this.#references.set(sym, obj);
+    return sym;
+  }
+  deref(sym) {
+    return this.#references.get(sym);
+  }
 }
 
 const refs = new RefBookkeeper();
 
 const record = #{
-  x: refs.ref(() => { console.log("HI!!") }),
+  x: refs.ref(() => {
+    console.log("HI!!");
+  }),
 };
 refs.deref(record.x)(); // HI!!
 ```

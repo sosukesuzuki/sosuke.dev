@@ -59,7 +59,7 @@ const require = module.createRequire(import.meta.url);
 
 実は Node.js には `import.meta.url` の他に `import.meta.resolve` というプロパティが実装されている。
 
-ECMAScript Modules 界隈では有名な Guy Bedford による https://github.com/nodejs/node/pull/31032 によって実装されたようで、この Pull Request は 2019年の12月に作成されている。
+ECMAScript Modules 界隈では有名な Guy Bedford による https://github.com/nodejs/node/pull/31032 によって実装されたようで、この Pull Request は 2019 年の 12 月に作成されている。
 
 ドキュメントは https://nodejs.org/api/esm.html#esm_import_meta_resolve_specifier_parent にある。
 
@@ -82,9 +82,9 @@ node --experimental-import-meta-resolve ./index.js
 }
 ```
 
-`import.meta.resolve`にはオプショナルな第二引数が存在し、解決元となるファイルの絶対パスURLを指定することができる。デフォルトでは`import.meta.url`が指定されている。つまり、デフォルトでは`import.meta.resolve`が実行されるファイルのURLが指定されている。
+`import.meta.resolve`にはオプショナルな第二引数が存在し、解決元となるファイルの絶対パス URL を指定することができる。デフォルトでは`import.meta.url`が指定されている。つまり、デフォルトでは`import.meta.resolve`が実行されるファイルの URL が指定されている。
 
-この第二引数を使うことで現在実行中ではないファイルをもとに解決されたモジュールのURLを取得できる。
+この第二引数を使うことで現在実行中ではないファイルをもとに解決されたモジュールの URL を取得できる。
 
 たとえば、次のようなディレクトリ構造があるとする。
 
