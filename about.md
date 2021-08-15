@@ -9,5 +9,3 @@ title: "sosukesuzuki.dev"
 - Gmail: `aosukeke[at]gmail.com`
 - Twitter: [@\_\_sosukesuzuki](https://twitter.com/__sosukesuzuki)
 - GitHub: [@sosukesuzuki](https://github.com/sosukesuzuki)
-
-JavaScript が好きなプログラマーです。Prettier のメンテナンスや Babel への貢献をしています。
