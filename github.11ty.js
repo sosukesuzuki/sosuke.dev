@@ -37,7 +37,7 @@ module.exports = class {
     return `<div>
     <div>
     <h2>My GitHub activities</h2>
-    <p>${description}(fetched at ${format(new Date(), "yyyy/MM/dd")})</p>
+    <p>${description}(last fetched: ${format(new Date(), "yyyy/MM/dd")})</p>
     </div>
     <div>
     <ul>
