@@ -6,7 +6,9 @@ exports.data = {
 };
 
 exports.render = function (data) {
-  const description = data.page.url.startsWith("/posts")
+  const description = data.description
+    ? data.description
+    : data.page.url.startsWith("/posts")
     ? data.content
         .replace(/.+<\/p>/, "")
         .replace(/(<([^>]+)>)/gi, "")

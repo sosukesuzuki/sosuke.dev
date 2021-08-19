@@ -2,3 +2,5 @@
 /public
 /.cache
 /_site
+.env
+/.vscode
