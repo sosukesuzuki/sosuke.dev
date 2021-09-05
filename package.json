@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
-    "dev": "eleventy --serve",
+    "dev": "NODE_ENV=development eleventy --serve",
     "format": "prettier -w .",
     "lint:text": "textlint posts"
   },

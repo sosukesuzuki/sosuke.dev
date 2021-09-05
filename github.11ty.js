@@ -1,5 +1,7 @@
 const { Octokit } = require("@octokit/rest");
 const { format } = require("date-fns");
+const path = require("path");
+const fs = require("fs/promises");
 
 require("dotenv").config();
 
@@ -9,7 +11,7 @@ const octokit = new Octokit({
 
 const QUERY = {
   issue: "-user:sosukesuzuki author:sosukesuzuki is:public is:issue",
-  pr: "-user:sosukesuzuki author:sosukesuzuki is:public is:pr"
+  pr: "-user:sosukesuzuki author:sosukesuzuki is:public is:pr",
 };
 
 async function search(query) {
@@ -31,6 +33,26 @@ async function search(query) {
   return items;
 }
 
+async function searchIssuesAndPrs() {
+  const cacheFilePath = path.join(__dirname, "github.cache.txt");
+  if (process.env.NODE_ENV === "development") {
+    let data;
+    try {
+      data = (await fs.readFile(cacheFilePath, "utf-8")).trim();
+    } catch {}
+    if (data) {
+      return JSON.parse(data);
+    }
+  }
+  const issues = await search(QUERY.issue);
+  const pullRequests = await search(QUERY.pr);
+  const result = { issues, pullRequests };
+  if (process.env.NODE_ENV === "development") {
+    await fs.writeFile(cacheFilePath, JSON.stringify(result));
+  }
+  return result;
+}
+
 function renderItems(items) {
   return `${items
     .map(({ title, url, number, repo }) => {
@@ -42,8 +64,7 @@ function renderItems(items) {
 }
 module.exports = class {
   async data() {
-    const issues = await search(QUERY.issue);
-    const pullRequests = await search(QUERY.pr);
+    const { issues, pullRequests } = await searchIssuesAndPrs();
     return {
       title: "sosukesuzuki's GitHub activities",
       layout: "layout.11ty.js",
