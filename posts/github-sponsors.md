@@ -1,13 +1,13 @@
 ---
 layout: article-layout.11ty.js
-date: 2021-09-20
+date: 2021-09-22
 title: "GitHub Sponsors をはじめました"
 tags: post
 ---
 
 GitHub Sponsors をはじめました。
 
-すでに3人の方に支援していただいています。ありがとうございます。
+すでに4人の方に支援していただいています。ありがとうございます。
 
 他の方にも支援していただけると嬉しいです。
 
@@ -17,7 +17,7 @@ GitHub Sponsors をはじめました。
 ## どのような OSS 活動をしているのか
 
 主に JavaScript や TypeScript などのためのコードフォーマッター [Prettier](https://prettier.io) のメンテナーをやっています。
-バグの修正、新しい機能の実装、リファクタリング、Issue のトリアージ、Pull Request のレビュー、リリースブログの準備、そしてリリースなど必要なことを大体やっています。
+バグの修正、新しい機能の実装、リファクタリング、Issue のトリアージ、Pull Request のレビュー、リリースブログの準備、そしてリリースをしています。
 (場合によっては私以外のメンテナーがリリースブログの準備やリリース作業をやることもあります。)
 
 また Prettier が依存している他の OSS プロジェクトにも貢献しています。
@@ -29,6 +29,8 @@ typescript-eslint では、TypeScript の新しい構文への対応や、Babel 
 
 ほかにも、興味のあるプロジェクトには積極的に貢献しています。
 たとえば、Rust 製の JavaScript トランスパイラ [swc](https://github.com/swc-project/swc) のバグ修正や新しい構文への対応などをしています。
+
+私が作成した直近 25 件の Pull Request と Issue は https://sosukesuzuki.dev/github/ から確認できます。
 
 ## なぜ GitHub Sponsors をはじめたのか
 
@@ -42,7 +44,10 @@ GitHub Sponsors で支援をいただければ、その可能性を下げるこ�
 
 また、私のモチベーションが維持できないと Prettier プロジェクトのメンテナンスの継続が難しいという短期的な理由もあります。
 
-現在 Prettier プロジェクトは人手が足りていません。アクティブなメンテナーは私を含めて 2 ~ 3 人です。
+Prettier は JavaScript や TypeScript を使った開発では欠かせないソフトウェアとなりました。
+最近では、[dprint](https://github.com/dprint/dprint)などの新しいソフトウェアも知られるようになってきましたが、最もよく使われているのはおそらくまだ Prettier です。
+
+しかし、Prettier Team は人手が足りていません。アクティブなメンテナーは私を含めて 2 ~ 3 人です。
 アクティブなメンテナーのうち誰か1人でもなんらかの事情で OSS 活動に時間を使うことができなくなった場合、Prettier のメンテナンスを継続するのが困難になります。
 
 私にとって OSS 活動はオンラインゲームのようなもので、そのほとんどが完全な趣味です。([一部仕事としてやったものもあります](https://blog.cybozu.io/entry/2021/01/18/110000))
@@ -62,7 +67,7 @@ GitHub Sponsors に登録するには Stripe に登録する必要があり、�
 
 ## OpenCollective の資金は使わないのか
 
-Prettier は OpenCollective での支援を受け付けています。
+Prettier は OpenCollective での支援を受け付けており、現在 $45,000 以上の資金が集まっています。
 
 https://opencollective.com/prettier
 
