@@ -3,7 +3,7 @@ layout: layout.11ty.js
 title: "sosukesuzuki.dev"
 ---
 
-![logo](/img/logo.jpeg)
+<img src="/img/logo.jpeg" width="100" height="100" alt="sosukesuzuki logo">
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <a class="github-button" href="https://github.com/sponsors/sosukesuzuki" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-heart" aria-label="Sponsor @sosukesuzuki on GitHub">Sponsor</a>
