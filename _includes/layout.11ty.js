@@ -47,10 +47,10 @@ exports.render = function (data) {
         <h1><a href="/">sosukesuzuki.dev</a></h1>
         <div class="icons">
           <a href="https://github.com/sosukesuzuki">
-            <img src="/img/github-icon.png" class="icon github-icon">
+            <img src="/img/github-icon.png" class="icon github-icon" width="30" height="30">
           </a>
           <a href="https://twitter.com/__sosukesuzuki">
-            <img src="/img/twitter-icon.png" class="icon twitter-icon">
+            <img src="/img/twitter-icon.png" class="icon twitter-icon" width="50" height="50">
           </a>
         </div>
       </header>
