@@ -6,13 +6,13 @@
   --main-link-color: rgb(25, 113, 194);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --main-text-color: white;
     --main-background-color: black;
     --main-link-color: rgb(25, 113, 194);
   }
-}
+} */
 
 /* Reset */
 html {
