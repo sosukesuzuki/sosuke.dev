@@ -14,6 +14,8 @@ exports.render = function (data) {
         .replace(/(<([^>]+)>)/gi, "")
         .slice(0, 120)
     : "sosukesuzuki's personal website";
+  const baseUrl = "https://sosukesuzuki.dev";
+  const absoluteUrl = data.page.url ? `${baseUrl}${data.page.url}` : baseUrl;
   return /* HTML */ `<!DOCTYPE html>
     <html lang="ja">
       <head>
@@ -33,7 +35,7 @@ exports.render = function (data) {
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@__sosukesuzuki" />
-        <meta name=twitter:url content=https://sosukesuzuki.dev>
+        <meta name="twitter:url" content="${absoluteUrl}" />
         <meta name="twitter:description" content="${description}" />
         <meta
           name="twitter:image"
@@ -41,7 +43,7 @@ exports.render = function (data) {
         />
 
         <meta property="og:type" content="article" />
-        <meta property=og:url content=https://sosukesuzuki.dev>
+        <meta property="og:url" content="${absoluteUrl}" />
         <meta property="og:title" content="${data.title}" />
         <meta property="og:site_name" content="sosukesuzuki.dev" />
         <meta property="og:description" content="${description}" />
