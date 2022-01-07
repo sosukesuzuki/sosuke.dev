@@ -2,6 +2,7 @@
 layout: article-layout.11ty.js
 date: 2022-01-07
 title: "翻訳: Prettier はメンテナーへの報酬の支払いを始めます"
+description: "Prettier 公式ブログの Prettier begins paying maintainers を許可を得て翻訳したものです"
 tags: post
 ---
 
