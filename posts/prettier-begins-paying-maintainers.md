@@ -1,11 +1,11 @@
 ---
 layout: article-layout.11ty.js
-date: 2022-01-06
+date: 2022-01-07
 title: "翻訳: Prettier はメンテナーへの報酬の支払いを始めます"
 tags: post
 ---
 
-この記事は Prettier 公式ブログに掲載されている [Christopher Chedeau (@vjeux)](https://twitter.com/Vjeux) 氏による記事 [Prettier begins paying maintainers](https://prettier.io/blog/2022/01/06/prettier-begins-paying-maintainers.html) を翻訳したものです。
+この記事は Prettier 公式ブログに掲載されている [Christopher Chedeau (@vjeux)](https://twitter.com/Vjeux) 氏による記事 [Prettier begins paying maintainers](https://prettier.io/blog/2022/01/06/prettier-begins-paying-maintainers.html) を、許可を得て翻訳したものです。
 
 ***
 
