@@ -226,7 +226,7 @@ function OrdinaryToPrimitive(O, hint) {
 
 1回目のループでは `Get` を使って `O`(今回は配列)から `valueOf` を取得し `method` とする。`method` には配列の `valueOf` が格納され、`IsCallable(method)` をパスする。しかし配列の `valueOf` はその配列を返す。つまり配列の `valueOf` は Object 型の値を返すのだ。そのため `ii` の `If Type(result) is not Object` という条件はパスできない。したがって値を何も返さず次のループへ進む。
 
-2回目のループでは、`Get` を使って `O` から `toString` を取得し `method` とする。配列には `toString` が定義されているので、`method` はその配列の `toString` になる。今回のループでは `method` に 配列の `toString` が格納されているので `IsCallable(method)` は `true` になる。次に `i` でその `method` を呼び出した結果を `result` とする。配列のデフォルトの `toString` は `String` を返す。`String` は非 Object 型なので `result` が `OrdinaryToPrimitive` の返り値となる。
+2回目のループでは、`Get` を使って `O` から `toString` を取得し `method` とする。配列には `toString` が定義されているので、`method` はその配列の `toString` になる。今回のループでは `method` に 配列の `toString` が格納されているので `IsCallable(method)` は `true` になる。次に `i` でその `method` を呼び出した結果を `result` とする。配列のデフォルトの `toString` は `String` を返す。`String` は非 Object 型なので `If Type(result) is not Object` という条件をパスし `result` が `OrdinaryToPrimitive` の返り値となる。
 
 ## つまりなんだっけ？
 
