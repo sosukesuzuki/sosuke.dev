@@ -10,11 +10,11 @@ tags: post
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I have been writing Javascript since roughly 1997 but it still manages to occasionally do something that absolutely shocks me <a href="https://t.co/JyYOo4wGOu">pic.twitter.com/JyYOo4wGOu</a></p>&mdash; mcc (@mcclure111) <a href="https://twitter.com/mcclure111/status/1481027678362902528?ref_src=twsrc%5Etfw">January 11, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-JavaScript では `[1, 2, 3] + [4, 5, 6]` の結果が `"1,2,34,5,6"` あり、この挙動が直感に反しているというツイートである。
+JavaScript では `[1, 2, 3] + [4, 5, 6]` の結果が `"1,2,34,5,6"` であり、この挙動が直感に反しているというツイートである。
 
 実際のところ筆者も直感に反していると思う。しかしこの挙動は至って ECMAScript の仕様通りである。
 
-この記事では、なぜこの挙動が ECMAScript の仕様に従っていると言えるのか仕様を読みながら説明する。
+この記事では、なぜこの挙動が ECMAScript の仕様に従っていると言えるのか仕様を引用して説明する。
 
 ## + 演算子
 
@@ -216,9 +216,9 @@ function OrdinaryToPrimitive(O, hint) {
 
 今回の場合は `methodNames` は `"valueOf", "toString"` なので、その順番でループが実行される。
 
-最初のループでは `Get` を使って `O`(今回は配列)から `valueOf` を取得し `method` とする。しかし配列にはデフォルトでは `valueOf` は定義されていない。したがって `IsCallable(method)` は `false` になり、何も返さずに次のループに進む。
+1回目のループでは `Get` を使って `O`(今回は配列)から `valueOf` を取得し `method` とする。しかし配列にはデフォルトでは `valueOf` は定義されていない。したがって `IsCallable(method)` は `false` になり、何も返さずに次のループに進む。
 
-二回目のループでは、`Get` を使って `O` から `toString` を取得し `method` とする。配列には `toString` が定義されているので、`method` はその配列の `toString` になる。今回のループでは `method` に 配列の `toString` が格納されているので `IsCallable(method)` は `true` になる。次に `i` でその `method` を呼び出した結果を `result` とする。配列のデフォルトの `toString` は文字列を返す。文字列は非 Object 型なので、`ii` にて `result` が、`OrdinaryToPrimitive` の返り値となる。
+2回目のループでは、`Get` を使って `O` から `toString` を取得し `method` とする。配列には `toString` が定義されているので、`method` はその配列の `toString` になる。今回のループでは `method` に 配列の `toString` が格納されているので `IsCallable(method)` は `true` になる。次に `i` でその `method` を呼び出した結果を `result` とする。配列のデフォルトの `toString` は `String` を返す。`String` は非 Object 型なので `result` が `OrdinaryToPrimitive` の返り値となる。
 
 ## つまりなんだっけ？
 
@@ -241,7 +241,7 @@ console.log(arrStr); // "1,2,3"
 
 さて、この仕様がわかればいくつかのハックが思いつくだろう。
 
-まずは、`ToPrimitive` によって `OrdinaryToPrimitive` よりも先に実行される `@@ToPrimitive` を上書きすればその挙動を変更できる。
+まずは `ToPrimitive` によって `OrdinaryToPrimitive` よりも先に実行される `@@ToPrimitive` を上書きすればその挙動を変更できる。
 
 ```js
 const arr = [1, 2, 3];
@@ -249,7 +249,7 @@ arr[Symbol.toPrimitive] = () => "hello!!";
 console.log(arr + [4, 5, 6]); // "hello!!4,5,6"
 ```
 
-また、配列の場合 `toString` よりも `valueOf` の方が優先される。なので、`valueOf` を上書きしてもその挙動を変更できる。
+また、配列の場合 `toString` よりも `valueOf` の方が優先される。なので `valueOf` を上書きしてもその挙動を変更できる。
 
 ```js
 const arr = [1, 2, 3];
@@ -257,7 +257,7 @@ arr.valueOf = () => "hello!!";
 console.log(arr + [4, 5, 6]); // "hello!!4,5,6"
 ```
 
-もしくは、`toString` 自体を上書きしてもその挙動を変更できる。
+もしくは `toString` 自体を上書きしてもその挙動を変更できる。
 
 ```js
 const arr = [1, 2, 3];
