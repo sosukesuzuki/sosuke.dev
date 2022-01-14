@@ -2,6 +2,7 @@
 layout: article-layout.11ty.js
 date: 2022-01-13
 title: "なぜ [1, 2, 3] + [4, 5, 6] は \"1,2,34,5,6\" なのか"
+description: "なぜ JavaScript で [1, 2, 3] + [4, 5, 6] は \"1,2,34,5,6\" になるのか"
 tags: post
 ---
 
@@ -215,7 +216,7 @@ function OrdinaryToPrimitive(O, hint) {
 
 今回の場合は `methodNames` は `"valueOf", "toString"` なので、その順番でループが実行される。
 
-最初のループでは `Get` を使って `O`(今回の場合は配列)から `"valueOf"` を取得し `method` とする。しかし配列にはデフォルトでは `"valueOf"` は定義されていない。したがって `IsCallable(method)` は `false` になり、何も返さずに次のループに進む。
+最初のループでは `Get` を使って `O`(今回は配列)から `valueOf` を取得し `method` とする。しかし配列にはデフォルトでは `valueOf` は定義されていない。したがって `IsCallable(method)` は `false` になり、何も返さずに次のループに進む。
 
 二回目のループでは、`Get` を使って `O` から `toString` を取得し `method` とする。配列には `toString` が定義されているので、`method` はその配列の `toString` になる。今回のループでは `method` に 配列の `toString` が格納されているので `IsCallable(method)` は `true` になる。次に `i` でその `method` を呼び出した結果を `result` とする。配列のデフォルトの `toString` は文字列を返す。文字列は非 Object 型なので、`ii` にて `result` が、`OrdinaryToPrimitive` の返り値となる。
 
@@ -225,7 +226,7 @@ function OrdinaryToPrimitive(O, hint) {
 
 `ApplyStringOrNumericBinaryOperator` では `ToPrimitive` によって左辺と右辺をプリミティブ化した値(`lprim` と `rprim`)が `String` であれば、それを結合して返すのだった。
 
-配列に対する `ToPrimitive` では、デフォルトでは結局のところ配列の `toString` を呼び出したものを返す。配列の `toString` の挙動は簡単に確認できる。
+配列に対する `ToPrimitive` では、デフォルトでは結局のところ配列の `toString` を呼び出したものを返す。配列の `toString` の挙動は簡単に確認できる。(仕様では https://tc39.es/ecma262/#sec-array.prototype.tostring で定義されている)
 
 ```js
 const arrStr = [1, 2, 3].toString();
@@ -234,7 +235,7 @@ console.log(arrStr); // "1,2,3"
 
 つまり、単純にそれを結合したものが `ApplyStringOrNumericBinaryOperator` の返り値になり、それはそのまま `+` 演算子の返り値になるのだ。
 
-`[1, 2, 3] + [4, 5, 6]` の場合は、`ToPrimitive([1, 2, 3])` が `"1,2,3"` であり `ToPrimitive([4, 5, 6])` が `"4,5,6"` なので `ApplyStringOrNumericBinaryOperator` によってその２つが文字列として結合され `+` 演算子全体の結果が `"1,2,34,5,6"` になったということである。
+**`[1, 2, 3] + [4, 5, 6]` の場合は、`ToPrimitive([1, 2, 3])` が `"1,2,3"` であり `ToPrimitive([4, 5, 6])` が `"4,5,6"` なので `ApplyStringOrNumericBinaryOperator` によってその２つが文字列として結合され `+` 演算子全体の結果が `"1,2,34,5,6"` になったということである。**
 
 ## ここからハック
 
