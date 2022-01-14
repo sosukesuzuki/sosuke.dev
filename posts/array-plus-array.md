@@ -234,7 +234,7 @@ console.log(arrStr); // "1,2,3"
 
 つまり、単純にそれを結合したものが `ApplyStringOrNumericBinaryOperator` の返り値になり、それはそのまま `+` 演算子の返り値になるのだ。
 
-`[1, 2, 3] + [4, 5, 6]` の場合は、`ToPrimitive([1, 2, 3])` が `"1,2,3"` であり `ToPrimitive([4, 5, 6])` が `"4,5,6"` なので `ApplyStringOrNumericBinaryOperator` によってその２つが文字列として結合され `"1,2,34,5,6"` になったということである。
+`[1, 2, 3] + [4, 5, 6]` の場合は、`ToPrimitive([1, 2, 3])` が `"1,2,3"` であり `ToPrimitive([4, 5, 6])` が `"4,5,6"` なので `ApplyStringOrNumericBinaryOperator` によってその２つが文字列として結合され `+` 演算子全体の結果が `"1,2,34,5,6"` になったということである。
 
 ## ここからハック
 
