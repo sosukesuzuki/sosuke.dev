@@ -234,7 +234,7 @@ function OrdinaryToPrimitive(O, hint) {
 
 `ApplyStringOrNumericBinaryOperator` では `ToPrimitive` によって左辺と右辺をプリミティブ化した値(`lprim` と `rprim`)が `String` であれば、それを結合して返すのだった。
 
-配列に対する `ToPrimitive` では、デフォルトでは結局のところ配列の `toString` を呼び出したものを返す。配列の `toString` の挙動は簡単に確認できる。(仕様では https://tc39.es/ecma262/#sec-array.prototype.tostring で定義されている)
+配列に対する `ToPrimitive` は結局のところ配列の `toString` を呼び出したものを返す。配列の `toString` の挙動は簡単に確認できる。(仕様では https://tc39.es/ecma262/#sec-array.prototype.tostring で定義されている)
 
 ```js
 const arrStr = [1, 2, 3].toString();
