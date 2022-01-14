@@ -1,8 +1,8 @@
 ---
 layout: article-layout.11ty.js
 date: 2022-01-13
-title: "なぜ [1, 2, 3] + [4, 5, 6] は \"1,2,34,5,6\" なのか"
-description: "なぜ JavaScript で [1, 2, 3] + [4, 5, 6] は \"1,2,34,5,6\" になるのか"
+title: "なぜ JavaScript の [1, 2, 3] + [4, 5, 6] は \"1,2,34,5,6\" なのか"
+description: "なぜ JavaScript の [1, 2, 3] + [4, 5, 6] は \"1,2,34,5,6\" なのか"
 tags: post
 ---
 
