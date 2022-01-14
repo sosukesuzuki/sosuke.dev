@@ -16,6 +16,14 @@ JavaScript では `[1, 2, 3] + [4, 5, 6]` の結果が `"1,2,34,5,6"` であり�
 
 この記事では、なぜこの挙動が ECMAScript の仕様に従っていると言えるのか仕様を引用して説明する。
 
+## 大雑把な答え
+
+まず大雑把な答えを示しておこう。
+
+JavaScript で `[1, 2, 3] + [4, 5, 6]` が `"1,2,34,5,6"` になるのは、オペランドの配列の `Array.prototype.toString` が呼び出され、それらが文字列として結合されるからだ。
+
+しかしこれではつまらないのでちゃんと仕様をたどっていく。
+
 ## + 演算子
 
 まずは `+` 演算子の挙動がどのように定められているか見ていこう。
@@ -48,7 +56,7 @@ JavaScript では `[1, 2, 3] + [4, 5, 6]` の結果が `"1,2,34,5,6"` であり�
 5. Return ? ApplyStringOrNumericBinaryOperator(lval, opText, rval).
 ```
 
-これらのステップを大雑把に説明する。まず `leftOperand` を評価した結果を `lref` とする。そして `GetValue(lref)` の結果を `lval` とする(`GetValue` は https://tc39.es/ecma262/#sec-getvalue で定義されている。今回考えているケースのように `[1, 2, 3]` のような単純な配列を渡す場合はそのままの配列が返ってくると考えてよい。)。次に`leftOperand` に対しての処理と同じことを `rightOperand` に対しても行う。
+これらのステップを大雑把に説明する。まず `leftOperand` を評価した結果を `lref` とする。そして `GetValue(lref)` の結果を `lval` とする(`GetValue` は https://tc39.es/ecma262/#sec-getvalue で定義されている。今回考えている場合のように `[1, 2, 3]` のような単純な配列を渡す場合はそのままの配列が返ってくると考えてよい。)。次に`leftOperand` に対しての処理と同じことを `rightOperand` に対しても行う。
 
 そうして `lval` と `rval` が得られる。
 
@@ -144,7 +152,7 @@ step 7 に掲載されている表によると `opText` は次のいずれかで
 
 `@@ToPrimitive` は Well-known Symbols の１つで、Object 型の値がプリミティブに変換されるときの挙動を制御できる。[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) にドキュメントがあるので詳しくはそちらを参照してほしい。
 
-配列にはデフォルトの `@@ToPrimitive` は存在しないので今回のケースでは `exoticToPrim` は `undefined` になる。
+配列にはデフォルトの `@@ToPrimitive` は存在しないので今回の場合は `exoticToPrim` は `undefined` になる。
 
 そしてステップ `b` は `If exoticToPrim is not undefined, then` という条件付きで実行されるので、`exoticToPrim` が `undefined` である今回は `b` は実行されない。
 
