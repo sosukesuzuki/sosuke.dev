@@ -38,7 +38,7 @@ module.exports = class {
           <a href="/about">
             <h2>Sosuke Suzuki</h2>
           </a>
-          <p>Undergraduate Student</p>
+          <p>Software Enginner at <a href="https://ubie.life">Ubie,inc</a></p>
         </div>
       </div>
       <div>
