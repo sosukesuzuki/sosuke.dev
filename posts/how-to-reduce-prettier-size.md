@@ -196,6 +196,7 @@ bar();
 (次のような `largeFunctionShim.js` を作成しておきます。)
 
 ```js
+// largeFunctionShim.js
 module.exports = () => {};
 ```
 
