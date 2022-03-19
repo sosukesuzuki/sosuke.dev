@@ -48,7 +48,7 @@ https://github.com/prettier/prettier/issues/12144
 
 esbuild は今のところ CommonJS の Tree Shaking をサポートしていません。そして残念なことに Prettier のソースコードは CommonJS で記述されています。
 
-つまりモジュールバンドラーによる Tree Shaking には頼れません。つまり Tree Shaking 相当のことを自分たちでやるしかありませんでした。
+つまりモジュールバンドラーによる Tree Shaking には頼れません。なので Tree Shaking 相当のことを自分たちでやるしかありませんでした。
 
 ### ファイルを適切に分割する
 
