@@ -55,6 +55,7 @@ esbuild は今のところ CommonJS の Tree Shaking をサポートしていま
 たとえば次のような `utils.js` というファイルがあるとします。
 
 ```js
+// utils.js
 const foo = function () {
   console.log("Foo");
 };
@@ -67,6 +68,7 @@ module.exports = { foo, bar };
 この `utils.js` を `require` する `main.js` があるとします。
 
 ```js
+// main.js
 const { foo } = require("./utils.js");
 
 foo();
@@ -77,6 +79,7 @@ foo();
 Tree Shaking なしでこれを実現するためには、単純に `foo` と `bar` を別のファイルで宣言する必要があります。
 
 ```js
+// utils/foo.js
 const foo = function () {
   console.log("Foo");
 };
@@ -84,6 +87,7 @@ module.exports = { foo };
 ```
 
 ```js
+// utils/bar.js
 const bar = function () {
   console.log("Bar");
 };
@@ -149,6 +153,7 @@ esbuild-plugin-replace-module も似たような機能を持つプラグイン�
 次のような `sub-lib.js` があるとします。`sub-lib.js` は `foo` という関数をエクスポートしています。引数として与えられた `kind` が `"A"` のときに限り `largeFunction` という関数を呼び出します。
 
 ```js
+// sub-lib.js
 const largeFunction = require("./largeFunction");
 
 const foo = function (kind) {
@@ -165,6 +170,7 @@ module.exports = { foo };
 ここで次のような `lib.js` があるとします。`lib.js` は `bar` という関数をエクスポートしています。`bar` は `foo` に `"B"` を渡しています。
 
 ```js
+// lib.js
 const { foo } = require("./sub-lib.js");
 
 const bar = function () {
@@ -177,6 +183,7 @@ module.exports = { bar };
 そして次のような `main.js` があるとします。
 
 ```js
+// main.js
 const { bar } = require("./lib.js");
 
 bar();
