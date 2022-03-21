@@ -1,19 +1,25 @@
 const { readCSSFiles } = require("../utils");
 
+function getDescription(data) {
+  if (data.description) {
+    return data.description;
+  } else if (data.page.url.startsWith("/posts")) {
+    return data.content
+      .replace(/.+<\/p>/, "")
+      .replace(/(<([^>]+)>)/gi, "")
+      .slice(0, 120);
+  } else {
+    return "Sosuke Suzuki's personal website";
+  }
+}
+
 exports.data = {
   title: "sosukesuzuki.dev",
   description: "sosukesuzuki's personal website",
 };
 
 exports.render = function (data) {
-  const description = data.description
-    ? data.description
-    : data.page.url.startsWith("/posts")
-    ? data.content
-        .replace(/.+<\/p>/, "")
-        .replace(/(<([^>]+)>)/gi, "")
-        .slice(0, 120)
-    : "sosukesuzuki's personal website";
+  const description = getDescription(data);
   const baseUrl = "https://sosukesuzuki.dev";
   const absoluteUrl = data.page.url ? `${baseUrl}${data.page.url}` : baseUrl;
   const year = new Date().getFullYear();
