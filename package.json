@@ -12,7 +12,7 @@
     "lint:text": "textlint posts"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@octokit/rest": "^18.9.1",
     "clean-css": "^4.2.3",
