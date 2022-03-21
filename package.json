@@ -1,7 +1,7 @@
 {
   "name": "sosuke.dev",
   "version": "1.0.0",
-  "repository": "ssh://git@github.com/sosukesuzuki/sosukesuzuki.github.io.git",
+  "repository": "ssh://git@github.com/sosukesuzuki/sosuke.dev",
   "license": "MIT",
   "author": "Sosuke Suzuki <aosukeke@gmail.com>",
   "main": "index.js",
