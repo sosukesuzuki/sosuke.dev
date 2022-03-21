@@ -16,6 +16,7 @@ exports.render = function (data) {
     : "sosukesuzuki's personal website";
   const baseUrl = "https://sosukesuzuki.dev";
   const absoluteUrl = data.page.url ? `${baseUrl}${data.page.url}` : baseUrl;
+  const year = new Date().getFullYear();
   return /* HTML */ `<!DOCTYPE html>
     <html lang="ja">
       <head>
@@ -76,7 +77,7 @@ exports.render = function (data) {
         </header>
         <main>${data.content}</main>
         <footer>
-          <small>© 2019 Sosuke Suzuki</small>
+          <small>© ${year} Sosuke Suzuki</small>
         </footer>
       </body>
     </html>`;
