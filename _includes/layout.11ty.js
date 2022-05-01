@@ -58,6 +58,12 @@ exports.render = function (data) {
           property="og:image"
           content="https://sosukesuzuki.dev/img/large-logo.jpeg"
         />
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          title="Atom Feed"
+          href="https://sosukesuzuki.dev/feed.xml"
+        />
       </head>
       <body>
         <header>
