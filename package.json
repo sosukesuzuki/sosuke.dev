@@ -19,7 +19,7 @@
     "clean-css": "^4.2.3",
     "date-fns": "^2.16.1",
     "dotenv": "^10.0.0",
-    "markdown-it": "^11.0.1",
+    "markdown-it": "^12.3.2",
     "prettier": "2.1.2",
     "textlint": "^12.0.0",
     "textlint-rule-preset-ja-technical-writing": "^6.0.0"
