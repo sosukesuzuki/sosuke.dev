@@ -1,7 +1,7 @@
 ---
 layout: article-layout.11ty.js
 date: 2022-05-01
-title: "JavaScript に TypeScript のような型注釈を書ける Type Annotations プロポーザル"
+title: "JS に TS のような型注釈を書ける Type Annotations プロポーザル"
 tags: post
 ---
 
