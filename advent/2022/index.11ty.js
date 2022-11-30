@@ -13,7 +13,6 @@ module.exports = class {
     const posts = data.collections.advent2022.sort((a, b) =>
       a.date > b.date ? -1 : a.date < b.date ? 1 : 0
     );
-    console.log(posts);
     return `<div>
       <h1>2022年 sosukesuzuki 1人アドベントカレンダー</h1>
       <div>
