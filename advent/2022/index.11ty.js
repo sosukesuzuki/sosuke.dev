@@ -14,7 +14,16 @@ module.exports = class {
       a.date > b.date ? -1 : a.date < b.date ? 1 : 0
     );
     return `<div>
-      <h1>2022年 sosukesuzuki 1人アドベントカレンダー</h1>
+    <div class="profile">
+        <img src="/img/logo.jpeg" alt="sosukesuzuki">
+        <div>
+          <a href="/about">
+            <h2>Sosuke Suzuki</h2>
+          </a>
+          <p>Software Enginner at <a href="https://ubie.life">Ubie,inc</a></p>
+        </div>
+      </div>
+      <h3>2022年 sosukesuzuki 1人アドベントカレンダー</h3>
       <div>
       ${posts
         .map((post) => {
