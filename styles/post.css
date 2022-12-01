@@ -14,6 +14,14 @@
   margin-bottom: 16px;
 }
 
+.post a {
+  line-break: anywhere;
+}
+
+.post ul li {
+  font-size: 18px;
+}
+
 figure {
   text-align: center;
 }
