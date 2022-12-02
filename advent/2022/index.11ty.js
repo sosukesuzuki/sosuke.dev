@@ -11,7 +11,7 @@ module.exports = class {
   }
   render(data) {
     const posts = data.collections.advent2022.sort((a, b) =>
-      a.date > b.date ? -1 : a.date < b.date ? 1 : 0
+      a.date > b.date ? 1 : a.date < b.date ? -1 : 0
     );
     return `<div>
     <div class="profile">
