@@ -34,3 +34,31 @@ figcaption {
   color: grey;
   font: 15px arial;
 }
+
+.post table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  margin-bottom: 16px;
+}
+
+.post table th {
+  font-weight: 600;
+}
+
+.post table th,
+.post table td {
+  padding: 6px 13px;
+  border: 1px solid black;
+}
+
+.post table tr {
+  border-top: 1px solid black;
+}
+
+.post table img {
+  background-color: transparent;
+}
