@@ -5,9 +5,9 @@ title: "DefinitelyTyped がつらいので Prettier の型定義を本体のリ�
 tags: post
 ---
 
-つい先程、https://github.com/prettier/prettier/pull/14212 という Pull Request をマージした。
+つい先程、https://github.com/prettier/prettier/pull/14212 という Pull Request を `next` ブランチにマージした。
 
-これは DefinitelyTyped で管理されていた Prettier の TypeScript 用の型定義を Prettier 本体のリポジトリへと移す Pull Request だ。
+これは DefinitelyTyped で管理されていた Prettier の TypeScript 用の型定義を Prettier 本体のリポジトリへと移す Pull Request だ。この Pull Request によって、v3 からは `@types/prettier` をインストールする必要がなくなる。
 
 JavaScript で書かれたライブラリをメンテナンスしている他の人の意思決定の参考になるように、この記事ではこの変更を行ったモチベーションや手法について説明する。
 
