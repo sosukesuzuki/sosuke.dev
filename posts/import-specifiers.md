@@ -1,7 +1,7 @@
 ---
 layout: article-layout.11ty.js
 date: 2023-03-04
-title: "Node.js と ECMAScript の Import Specifier は違うらしい"
+title: "Node.js と ECMAScript の Import Specifier は意味が違うらしい"
 tags: post
 ---
 
