@@ -17,7 +17,7 @@ https://spidermonkey.dev/blog/2023/02/23/javascript-import-maps-part-1-introduct
 
 > In Node.js, it’s called import specifier, but in ECMAScript, ImportSpecifier has a different meaning.
 
-日本語に翻訳すれば「Node.js においては、それは import specifier と呼ばれていますが、ECMAScript における ImportSpecifier はそれとは違う意味を持ちます」ということである。
+日本語に翻訳すれば「それは、Node.js では import specifier と呼ばれていますが、ECMAScript での ImportSpecifier とは別の意味です」ということである。
 
 この脚注の文脈における「それ(it)」とは `import foo from "bar"` における `"bar"` の部分、すなわち JavaScript の Import 宣言のモジュールを指定する部分のことである。
 
