@@ -27,6 +27,16 @@ li ul {
   margin-left: 16px;
 }
 
+.post ol li {
+  font-size: 18px;
+}
+
+li ol {
+  list-style-type: decimal;
+  margin-top: 8px;
+  margin-left: 16px;
+}
+
 figure {
   text-align: center;
 }
