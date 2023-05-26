@@ -1,6 +1,6 @@
 ---
 layout: article-layout.11ty.js
-date: 2023-05-26
+date: 2023-05-27
 title: "フレームグラフを眺めて無駄な正規表現を消してPrettierのパフォーマンスをちょっとだけ改善する"
 tags: post
 ---
