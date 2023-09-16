@@ -3,6 +3,7 @@ const rss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPassthroughCopy("styles");
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(rss);
   eleventyConfig.setLibrary(

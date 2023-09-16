@@ -1,5 +1,3 @@
-const { readCSSFiles } = require("../utils");
-
 function getDescription(data) {
   if (data.description) {
     return data.description;
@@ -32,10 +30,15 @@ exports.render = function (data) {
         <link rel="shortcut icon" href="/img/favicon.ico" />
         <title>${data.title}</title>
 
-        <style>
-          ${readCSSFiles(["/styles/styles.css"])}
-        </style>
+        <link rel="stylesheet" href="/styles/styles.css" />
+
+        ${Array.isArray(data.styles)
+          ? data.styles
+              .map((s) => `<link rel="stylesheet" href="${s}" />`)
+              .join("\n")
+          : ""}
         ${data.css ? `<style>${data.css}</style>` : ""}
+
         <meta name="author" content="Sosuke Suzuki" />
 
         <meta name="description" content="${description}" />

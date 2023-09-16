@@ -1,12 +1,11 @@
 const { getDate } = require("date-fns");
-const { readCSSFiles } = require("../../utils");
 
 module.exports = class {
   data() {
     return {
       title: "2022年 sosukesuzuki 1人アドベントカレンダー",
       layout: "layout.11ty.js",
-      css: readCSSFiles(["/styles/top.css"]),
+      styles: ["/styles/top.css"],
     };
   }
   render(data) {

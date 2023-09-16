@@ -1,5 +1,4 @@
 const { format, getYear } = require("date-fns");
-const { readCSSFiles } = require("./utils");
 
 function getPostsWithYear(posts) {
   /** @type {Array<any>} */
@@ -23,7 +22,7 @@ module.exports = class {
     return {
       title: "sosukesuzuki.dev",
       layout: "layout.11ty.js",
-      css: readCSSFiles(["/styles/top.css"]),
+      styles: ["/styles/top.css"],
     };
   }
   render({ collections }) {
