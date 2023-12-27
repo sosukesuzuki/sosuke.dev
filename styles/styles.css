@@ -7,22 +7,6 @@
   --main-link-color: rgb(25, 113, 194);
 }
 
-@font-face {
-  font-family: AdjustedYuGothic;
-  font-weight: 400;
-  src: local("Yu Gothic Medium");
-}
-
-@font-face {
-  font-family: AdjustedYuGothic;
-  font-weight: 700;
-  src: local("Yu Gothic Bold");
-}
-
-html {
-  font-family: AdjustedYuGothic, Yu Gothic, YuGothic, sans-serif;
-}
-
 /* @media (prefers-color-scheme: dark) {
   :root {
     --main-text-color: white;
@@ -67,16 +51,15 @@ body {
   color: var(--main-text-color);
 }
 h1 {
-  font-size: 40px;
-  margin: 32px 0;
+  font-size: 24px;
+  margin: 24px 0;
   font-weight: bold;
-  line-height: 170%;
   color: var(--header-text-color);
 }
 h2 {
-  font-size: 32px;
-  margin-top: 64px;
-  margin-bottom: 24px;
+  font-size: 24px;
+  margin-top: 24px;
+  margin-bottom: 16px;
   font-weight: bold;
   line-height: 170%;
   color: var(--header-text-color);
