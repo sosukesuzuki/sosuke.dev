@@ -6,7 +6,7 @@ description: "Prettier 公式ブログの A curious case of the ternaries を許
 tags: post
 ---
 
-この記事は[Alex Rattray](https://github.com/rattrayalex)さんの [A curious case of the ternaries](https://prettier.io/blog/2023/11/12/curious-ternaries) を、本人の許可を得て翻訳したものです(タイトルは大幅に変えてしまっていますが)。
+この記事は[Alex Rattray](https://github.com/rattrayalex)さんの [A curious case of the ternaries](https://prettier.io/blog/2023/11/13/curious-ternaries) を、本人の許可を得て翻訳したものです(タイトルは大幅に変えてしまっていますが)。
 
 記事の最後にあるように Google Forms から新しい機能についてのフィードバックを求めています。私以外のメンテナーも読めるようにできるだけ英語で書いてほしいですが、「日本語でなら書いてもいいよ」という人がいたら日本語で書いてもらっても大丈夫です。
 
