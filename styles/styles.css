@@ -2,7 +2,7 @@
   --max-width: 800px;
   --header-height: 70px;
   --main-text-color: #16191f;
-  --header-text-color: #4e4c49;
+  --header-text-color: #16191f;
   --main-background-color: white;
   --main-link-color: rgb(25, 113, 194);
 }
@@ -51,23 +51,23 @@ body {
   color: var(--main-text-color);
 }
 h1 {
-  font-size: 24px;
+  font-size: 36px;
   margin: 24px 0;
   font-weight: bold;
   color: var(--header-text-color);
 }
 h2 {
-  font-size: 24px;
-  margin-top: 24px;
+  font-size: 32px;
+  margin-top: 16px;
   margin-bottom: 16px;
   font-weight: bold;
   line-height: 170%;
   color: var(--header-text-color);
 }
 h3 {
-  font-size: 24px;
-  margin-top: 40px;
-  margin-bottom: 24px;
+  font-size: 28px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   font-weight: bold;
   line-height: 170%;
   color: var(--header-text-color);
