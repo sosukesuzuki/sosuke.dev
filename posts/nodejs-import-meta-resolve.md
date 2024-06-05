@@ -107,7 +107,7 @@ node --experimental-import-meta-resolve ./index.js
 // ./pkg1/index.js
 const lodashUrlFromPkg2 = await import.meta.resolve(
   "lodash",
-  "file:///Users/foo/import-meta-resolve-examples/pkg2/index.js"
+  "file:///Users/foo/import-meta-resolve-examples/pkg2/index.js",
 );
 console.log({ lodashUrlFromPkg2 });
 ```

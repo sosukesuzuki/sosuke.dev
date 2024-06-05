@@ -21,7 +21,7 @@ exports.render = function (data) {
   const baseUrl = "https://sosukesuzuki.dev";
   const absoluteUrl = data.page.url ? `${baseUrl}${data.page.url}` : baseUrl;
   const year = new Date().getFullYear();
-  return /* HTML */ `<!DOCTYPE html>
+  return /* HTML */ `<!doctype html>
     <html lang="ja">
       <head>
         <meta charset="utf-8" />

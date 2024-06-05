@@ -8,7 +8,7 @@ tags: post
 
 この記事は Prettier 公式ブログに掲載されている [Christopher Chedeau (@vjeux)](https://twitter.com/Vjeux) 氏による記事 [Prettier begins paying maintainers](https://prettier.io/blog/2022/01/06/prettier-begins-paying-maintainers.html) を、許可を得て翻訳したものです。
 
-***
+---
 
 JavaScript を始めとしたいくつかの Web 開発のための言語のコードフォーマッターである Prettier は、2019 年から [OpenCollective](https://opencollective.com/prettier) で寄付を募り始めすでに \$50,000 が集まっています。私達はこの資金から二人のメンテナーに毎月\$1500を支払うことにしました。この資金により、彼らは将来に渡って Prettier のメンテナンスを継続できます。
 

@@ -111,7 +111,7 @@ console.log(formatted); // => foo\nbar
 ただ、acorn の型定義はちょっと弱いので、型定義だけは`@types/estree`を使ってみました。
 
 ```ts
-const ast = (acorn.parse(code, { locations: true }) as any) as ESTree.Node;
+const ast = acorn.parse(code, { locations: true }) as any as ESTree.Node;
 ```
 
 多分本当は acron の吐く AST と ESTree の型定義は異なると思うけど、とりあえず問題なく動いたのでよし！問題がでたら直すかも。

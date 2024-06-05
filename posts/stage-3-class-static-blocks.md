@@ -90,7 +90,9 @@ class C {
   }
   static {
     getFooOfC = (c) => c.#foo;
-    writeFooOfC = (c, v) => { c.#foo = v; }
+    writeFooOfC = (c, v) => {
+      c.#foo = v;
+    };
   }
 }
 const c = new C("private value");
@@ -98,7 +100,6 @@ const c = new C("private value");
 getFooOfC(c); // -> "private value"
 writeFooOfC(c, "updated private value");
 getFooOfC(c); // -> "updated private value"
-
 ```
 
 ## TypeScript 4.4

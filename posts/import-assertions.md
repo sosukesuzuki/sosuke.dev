@@ -52,7 +52,7 @@ import json from "./foo.json" assert { type: "json" } with { transformA: "value"
 Import Assertions は `import` のみではなく `export` に対しても使うことができる。
 
 ```js
-export { val } from './foo.js' assert { type: "javascript" };
+export { val } from "./foo.js" assert { type: "javascript" };
 ```
 
 また、Import Assertions は dynamic import をサポートしている。その場合、関数の第 2 引数にオブジェクトリテラルを渡すようにして指定する。

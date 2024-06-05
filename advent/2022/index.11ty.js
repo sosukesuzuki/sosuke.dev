@@ -10,7 +10,7 @@ module.exports = class {
   }
   render(data) {
     const posts = data.collections.advent2022.sort((a, b) =>
-      a.date > b.date ? 1 : a.date < b.date ? -1 : 0
+      a.date > b.date ? 1 : a.date < b.date ? -1 : 0,
     );
     return `<div>
     <div class="profile">
@@ -28,8 +28,8 @@ module.exports = class {
         .map((post) => {
           return `<h3 class="blog-post-item">
         ${getDate(post.data.date)}日目: <a href=${post.url}>${
-            post.data.title
-          }</a>
+          post.data.title
+        }</a>
       </h3>`;
         })
         .join("\n")}

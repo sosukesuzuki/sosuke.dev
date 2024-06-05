@@ -27,7 +27,7 @@ module.exports = class {
   }
   render({ collections }) {
     const posts = collections.post.sort((a, b) =>
-      a.date > b.date ? -1 : a.date < b.date ? 1 : 0
+      a.date > b.date ? -1 : a.date < b.date ? 1 : 0,
     );
     const postsWithYear = getPostsWithYear(posts);
     return `<div>
@@ -48,8 +48,8 @@ module.exports = class {
               .map((post) => {
                 return `<h3 class="blog-post-item">
               ${format(post.data.date, "yyyy-MM-dd")}: <a href=${post.url}>${
-                  post.data.title
-                }</a>
+                post.data.title
+              }</a>
             </h3>`;
               })
               .join("\n")}`;

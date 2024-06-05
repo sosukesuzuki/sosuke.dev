@@ -14,6 +14,7 @@ GitHub Sponsors をはじめました。
 他の方にも支援していただけると嬉しいです。
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+
 <a class="github-button" href="https://github.com/sponsors/sosukesuzuki" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-heart" aria-label="Sponsor @sosukesuzuki on GitHub">Sponsor</a>
 
 ## どのような OSS 活動をしているのか
