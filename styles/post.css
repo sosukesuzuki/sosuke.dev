@@ -31,6 +31,10 @@ li ul {
   font-size: 18px;
 }
 
+.post .shiki {
+  overflow-x: scroll;
+}
+
 li ol {
   list-style-type: decimal;
   margin-top: 8px;
