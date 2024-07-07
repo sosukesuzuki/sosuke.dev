@@ -10,7 +10,7 @@ module.exports = function (eleventyConfig) {
       html: true,
       breaks: true,
       linkify: true,
-    }),
+    }).use(require('markdown-it-footnote')),
   );
 
   // Configuration for using Shiki
