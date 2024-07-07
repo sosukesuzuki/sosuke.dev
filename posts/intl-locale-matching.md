@@ -72,7 +72,7 @@ try {
 
 JavaScriptCore[^2]とSpiderMonkey[^3]は、`"lookup"` のときと全く同じ動きをする。これはあくまで暫定的にこうなっているだけで、より良い実装があればそちらが採用されるだろう。
 
-V8では、ICU 67.1 から実装されている[`icu::LocaleMatcher`](https://unicode-org.github.io/icu-docs/apidoc/dev/icu4c/classicu_1_1LocaleMatcher.html)が使われているようだ[^4]。
+V8でも `"lookup"` と同じ動きをするが、`harmony_intl_best_fit_matcher` フラグを付けると ICU 67.1 から実装されている[`icu::LocaleMatcher`](https://unicode-org.github.io/icu-docs/apidoc/dev/icu4c/classicu_1_1LocaleMatcher.html)が使われるようになる[^4]。これは、言語的な近さや歴史的な背景を考慮したアルゴリズムらしい。たとえば `en-AU` (オーストラリア英語) は `en-US`（アメリカ英語）より `en-GB`（イギリス英語）に近いものだと判定されるようだ。
 
 [^1]: Unicode locale extension sequence は簡単に言えば `en-US-u-ca-buddhist` の `u-ca-buddhist` の部分のことだ。`ca` 以外にも `cf` や `fw` などたくさんの種類がある。詳細は [UTS#35](https://unicode.org/reports/tr35/#u_Extension) を参照してほしい。
 [^2]: https://github.com/WebKit/WebKit/blob/c994460e362bfdfa5706e5fb55b79eef38f51527/Source/JavaScriptCore/runtime/IntlObject.cpp#L928-L935
