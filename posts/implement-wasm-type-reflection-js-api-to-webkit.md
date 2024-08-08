@@ -75,13 +75,13 @@ console.log(imported[0]);
 
 ## WebKitでの実装
 
-このType Reflection JavaScript APIは４年ほど前から存在していて、ChromiumとFirefoxには実装されています。WebKitには 1 は実装されていましたが、2 と 3 は実装されていませんでした。
+このType Reflection JavaScript APIは４年ほど前から存在していて、ChromiumとFirefoxには実装されています。WebKitには１と３は実装されていましたが、2は実装されていませんでした。
 
 RubyのWasm周りやSwiftWasmのメンテナーである[@kateinoigakukun](https://x.com/kateinoigakukun)と話していたときに「Type Reflection JS APIの一部がWebKitにだけなくて困って、polyfil書いたんだよね～～」という話を聞きました[^1]。
 
 筆者はここ半年くらいWebKitに継続的に貢献していますが、WebAssemblyに関連する部分は全く触ったことがなかったし、そもそもWebAssemblyのことを全く知りませんでした。いずれWebAssemblyもやりたいと思ってはいたのですが、きっかけを上手く見つけられずにいたところだったので、この機会に実装してみることにしました。
 
-WebKitに実装されていないType Reflection JavaScript APIの変更のうち3の「MemoryとTableのコンストラクタの引数の変更」の方は、些細なので別途やろうということで、今回は２の「Module.importsとModule.exportsの返り値の要素のtypeプロパティの追加」の方に取り組みました。
+WebKitに実装されていないType Reflection JavaScript APIの変更である２の「Module.importsとModule.exportsの返り値の要素のtypeプロパティの追加」の方に取り組みました。
 
 ### コードリーディングと実装
 
