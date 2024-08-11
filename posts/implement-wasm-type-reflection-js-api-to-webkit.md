@@ -81,8 +81,6 @@ RubyのWasm周りやSwiftWasmのメンテナーである[@kateinoigakukun](https
 
 筆者はここ半年くらいWebKitに継続的に貢献していますが、WebAssemblyに関連する部分は全く触ったことがなかったし、そもそもWebAssemblyのことを全く知りませんでした。いずれWebAssemblyもやりたいと思ってはいたのですが、きっかけを上手く見つけられずにいたところだったので、この機会に実装してみることにしました。
 
-WebKitに実装されていないType Reflection JavaScript APIの変更である２の「Module.importsとModule.exportsの返り値の要素のtypeプロパティの追加」の方に取り組みました。
-
 ### コードリーディングと実装
 
 ここからはWebKitのコードリーディングと具体的な実装の手順の説明になります。
