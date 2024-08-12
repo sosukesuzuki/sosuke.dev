@@ -89,17 +89,17 @@ RubyのWasm周りやSwiftWasmのメンテナーである[@kateinoigakukun](https
 
 `imports`と`exports`で考えることはほとんど変わらないので、とりあえず`imports`について説明します。
 
-WebKitで、`WebAssembly.Module.imports`関数の実装に対応するコードは [Source/JavaScriptCore/wasm/js/WebAssemblyModuleConstructor.cpp#L202-L234](https://github.com/WebKit/WebKit/blob/6880a8bf71b04bf75da5ecb783a1dcea6dd08e20/Source/JavaScriptCore/wasm/js/WebAssemblyModuleConstructor.cpp#L202-L234) です。ここでは引数として渡されたモジュールインスタンスを [`JSWebAssemblyModule`](https://github.com/WebKit/WebKit/blob/main/Source/JavaScriptCore/wasm/js/JSWebAssemblyModule.h) 型の変数 `module` として扱っています。なので、ここではこの `module` 変数から上手くデータをひっぱってきて返り値の `type` プロパティにつっこんでやれば良いわけです。さらに、周辺のコードからモジュールに関するデータは `module->moduleInformation()` で取得できることがわかります。
+WebKitで、`WebAssembly.Module.imports`関数の実装に対応するコードは [Source/JavaScriptCore/wasm/js/WebAssemblyModuleConstructor.cpp#L202-L234](https://github.com/WebKit/WebKit/blob/6880a8bf71b04bf75da5ecb783a1dcea6dd08e20/Source/JavaScriptCore/wasm/js/WebAssemblyModuleConstructor.cpp#L202-L234) です。ここでは引数として渡されたモジュールインスタンスを [`JSWebAssemblyModule`](https://github.com/WebKit/WebKit/blob/main/Source/JavaScriptCore/wasm/js/JSWebAssemblyModule.h) 型の変数 `module` として扱っています。なので、ここではこの `module` 変数から上手くデータをひっぱってきて返り値の `type` プロパティにつっこんでやれば良いわけです。さらに、周辺のコードを読むとモジュールに関するデータは `module->moduleInformation()` で取得できることがわかります。
 
 ではどうやって `module->moduleInformation()` からひっぱってくるべきデータを探すのかということになります。WebAssemblyモジュールのバイナリフォーマットのインポートセクションを解析する部分があり、そこでモジュールのデータをセットしているはずだと考えました。
 
 実際、[Source/JavaScriptCore/wasm/WasmSectionParser.cpp#L147-L231](https://github.com/WebKit/WebKit/blob/e66ab86f1ac5269a25adc388f7efee404a2b07f3/Source/JavaScriptCore/wasm/WasmSectionParser.cpp#L147-L231)でモジュールのインポートセクションを解析して、`kind` に応じて `m_info` というフィールドに色々とセットしていることがわかりました。`module->moduleInformation()` は基本的に `WasmSectionParser.cpp` で作られた `m_info` を返すだけなので、そこでセットされた情報を `WebAssembly.Module.imports` の方から読み出せば良いということになります。
 
-ということで、`module->moduleInformation()` からほしいデータを取得してオブジェクトを作成する `createTypeReflectionObject` 関数を書いて、`type` プロパティにセットするようにしたら、意図した通りに動作しました。コードは [Source/JavaScriptCore/wasm/js/WebAssemblyModuleConstructor.cpp#L104-L200](https://github.com/WebKit/WebKit/blob/6880a8bf71b04bf75da5ecb783a1dcea6dd08e20/Source/JavaScriptCore/wasm/js/WebAssemblyModuleConstructor.cpp#L104-L200) にあります。
+ということで、`module->moduleInformation()` からほしいデータを取得してオブジェクトを作成する `createTypeReflectionObject` という関数を書いて、`type` プロパティにセットするようにしたら、意図した通りに動作しました。コードは [Source/JavaScriptCore/wasm/js/WebAssemblyModuleConstructor.cpp#L104-L200](https://github.com/WebKit/WebKit/blob/6880a8bf71b04bf75da5ecb783a1dcea6dd08e20/Source/JavaScriptCore/wasm/js/WebAssemblyModuleConstructor.cpp#L104-L200) にあります。
 
-ちなみに `createTypeReflectionObject` 関数は `WebAssembly.Module.imports` と `WebAssembly.Module.exports` の両方のために使うことを想定して作っています。WebKit でインポートのエントリを表す型は `Wasm::Import` で、エクスポートのエントリを表す型で `Wasm::Export` で、それらは異なる型です。WebKitではC++20を使うことができるので[コンセプト](https://cpprefjp.github.io/lang/cpp20/concepts.html)使うことができます。
+ちなみにこの `createTypeReflectionObject` 関数は `WebAssembly.Module.imports` と `WebAssembly.Module.exports` の両方のために使うことを想定して作っています。WebKit でインポートのエントリを表す型は `Wasm::Import` で、エクスポートのエントリを表す型で `Wasm::Export` で、それらは異なる型です。
 
-それを使って、`Wasm::Import`と`Wasm::Export`のどちらかのみを受け付けるようにしてみました。コンセプトって初めて使いましたがTypeScriptみたいで面白いですね。
+WebKitではC++20を使うことができるので[コンセプト](https://cpprefjp.github.io/lang/cpp20/concepts.html)という機能を使って、`Wasm::Import`と`Wasm::Export`のどちらかのみを受け付けるようにしてみました。コンセプトって初めて使いましたがTypeScriptみたいで面白いですね。
 
 ```cpp
 template<typename T>
@@ -118,9 +118,9 @@ Pull Request は https://github.com/WebKit/WebKit/pull/31702 です。
 
 ここに書いたところまでは割とサクッとできたのですが、このあと難しい箇所がありました。
 
-Type Reflectionの提案ではなく、[Function Reference](https://github.com/WebAssembly/function-references)という別の提案の方に、Type Reflectionとの相互運用についての言及があります[^2]。WebKitはすでにFunction Referenceをフラグ付きでサポートしているので、Type Reflectionを実装するなら、そこを気にする必要がありました。
+[Function Reference](https://github.com/WebAssembly/function-references)という別の提案の方に、Type Reflectionとの相互運用についての言及があります[^2]。WebKitはすでにFunction Referenceをフラグ付きでサポートしているので、Type Reflectionを実装するなら、そこを考慮する必要がありました。
 
-そのための実装自体は簡単だったものの、この提案のことは理解できていないので、もうちょっとちゃんと勉強する必要がありそうです。
+そのための実装自体は前例があったから簡単だったものの、この提案のことは理解できていないので、もうちょっとちゃんと勉強する必要がありそうです。
 
 また、このFunction Referenceで追加された機能を使ったwatを、[wabt](https://github.com/WebAssembly/wabt)を使ってwasmにしようとしたら構文エラーが起きてしまいました。どうやらまだFunction Referenceをちゃんとサポートできていないようだったので途中から[wasm-tools](https://github.com/bytecodealliance/wasm-tools)に切り替えました。
 
