@@ -1,7 +1,7 @@
 ---
 layout: article-layout.11ty.js
 date: 2024-08-09
-title: "WebKitにWebAssembly Type Reflection JS API（の一部）を実装してみた"
+title: "WebKitにWasm Type Reflection API（の一部）を実装してみた"
 tags: post
 ---
 
