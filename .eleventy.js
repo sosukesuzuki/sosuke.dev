@@ -8,7 +8,6 @@ module.exports = function (eleventyConfig) {
     "md",
     require("markdown-it")({
       html: true,
-      breaks: true,
       linkify: true,
     }).use(require('markdown-it-footnote')),
   );

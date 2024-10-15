@@ -149,3 +149,7 @@ footer {
   margin-top: 30px;
   color: gray;
 }
+
+.footnote-item > p {
+  display: inline;
+}
