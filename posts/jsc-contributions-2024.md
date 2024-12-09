@@ -14,7 +14,7 @@ Pull Request を作るという活動をやめなければ当然いつかは 100
 とはいえ、JavaScriptCorr に対して１年足らずで 100 個の Pull Request を作成してマージされる、というのはまあまあ珍しいことのようです。実際に、2024 年内にマージされた JavaScriptCore に対する PR の作者を円グラフで表すと、以下のようになっています。
 
 <figure>
-<img style="border: 1px solid gray; height: 400px; width: 643px;" src="/img/jsc-contributions-2024.jpg"  />
+<img width="643" height="400" style="border: 1px solid gray;" src="/img/jsc-contributions-2024.jpg"  />
 <figcaption>2024年にマージされたJSCのコントリビューション数</figcaption>
 </figure>
 
