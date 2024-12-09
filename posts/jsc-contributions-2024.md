@@ -1,6 +1,6 @@
 ---
 layout: article-layout.11ty.js
-date: 2024-12-03
+date: 2024-12-10
 title: "WebKit(JavaScriptCore)に100個のPull Requestがマージされた"
 tags: post
 ---
@@ -9,7 +9,7 @@ tags: post
 
 JavaScriptCore のソースコードは WebKit のリポジトリ https://github.com/webkit/webkit に完全に含まれています。なので、僕が Pull Request を投げる先も WebKit のリポジトリということになります。そして先日、WebKit リポジトリにマージされた自分の Pull Request の数が 100 に達しました。
 
-Pull Request を作るという活動をやめなければ当然いつかは 100 個に達するので、特に頑張ったなという気持ちはなく、どちらかというと大して意味のないことをやめられなかったというネガティブな気持ちの方が強くあります。[^1]
+Pull Request を作るという活動をやめなければ当然いつかは 100 個に達するので別に偉業ということはないんですが、どちらかというと大して意味のないことをやめられなかったというネガティブな気持ちの方が強くあります。[^1]
 
 とはいえ、JavaScriptCorr に対して１年足らずで 100 個の Pull Request を作成してマージされる、というのはまあまあ珍しいことのようです。実際に、2024 年内にマージされた JavaScriptCore に対する PR の作者を円グラフで表すと、以下のようになっています。
 
@@ -63,52 +63,86 @@ C++を使って自分の手でプロジェクトを設計したわけではな�
 
 自分が読んだブログは以下です:
 
-- https://webkit.org/blog/10308/speculation-in-javascriptcore/
-- https://webkit.org/blog/7122/introducing-riptide-webkits-retreating-wavefront-concurrent-garbage-collector/
-- https://webkit.org/blog/12967/understanding-gc-in-jsc-from-scratch/
-- https://webkit.org/blog/10298/inline-caching-delete/
-- https://webkit.org/blog/5852/introducing-the-b3-jit-compiler/
+- Filip Pizlo. 2022. [Speculation in JavaScriptCore](https://webkit.org/blog/10308/speculation-in-javascriptcore/)
+- Filip Pizlo. 2017. [Introducing Riptide: WebKit's Retreating Wavefront Concurrent Garbage Collector](https://webkit.org/blog/7122/introducing-riptide-webkits-retreating-wavefront-concurrent-garbage-collector/)
+- Haoran Xu. 2022. [Understanding Garbage Collection in JavaScriptCore From Scratch](https://webkit.org/blog/12967/understanding-gc-in-jsc-from-scratch/)
+- Justin Michaud. 2020. [A Tour of Inline Caching with Delete](https://webkit.org/blog/10298/inline-caching-delete/)
+- Filip Pizlo. 2016. [Introducing the B3 JIT Compiler](https://webkit.org/blog/5852/introducing-the-b3-jit-compiler/)
 
 これらのブログ記事の中にはとても長いものもあり、読むのに時間がかかります。
 
-これらのブログ記事は JavaScriptCore に限らず、コンパイラや GC の勉強として興味深いものばかりです。特に、RipTide のライトバリアは面白すぎて、テンションがめちゃくちゃ上がってしまい、研究室の同期に面白さを力説してしまいました。単純に趣味としてオススメです。
+これらのブログ記事は JavaScriptCore に限らず、コンパイラや GC の勉強として興味深いものばかりです。特に、Riptide のライトバリアは面白すぎて、テンションがめちゃくちゃ上がってしまい、研究室の同期に面白さを力説してしまいました。単純に趣味としてオススメです。
+
+### コードの読み方
+
+「どうやってでっかいコードベースを読むんですか？」という質問をもらったことが何度かあるので、コードの読み方について。
+
+前述のとおり全体的なアーキテクチャや用語を把握するのは前提として、その上で自分は基本的にはめちゃくちゃprint debugしてます。あとJavaScriptCoreではlldb、gdbなどのデバッガが割と動くのでめっちゃブレークポイント貼って変数の中身とかみてます。
+
+あと、オプションをつけるとバイトコード列や、JITのディスアセンブル結果が見られるのでそれを睨むこともあります。
+
+再現性のあるアプローチとしては、やはりそのプロジェクトでのprint debugのやり方を最初に見つけることが重要だと思います。特に、JSCではJITコンパイル後のコードからprintするための特別な関数があったりする[^4]ので、そういうのを先に見つけておいたのは良かったと思います。FTL JITの中間表現レイヤでprintする方法がどうしてもわからなかったときはWebKit Slackで聞いたらAppleの人が教えてくれました[^3]。
+
+https://blog.jxck.io/entries/2024-03-26/chromium-contribution.html みたいな感じでどこかにまとめておくべきかとも思っています。
+
+やや情報が古いこともありますが、[JavaScriptCore CSI: A Crash Site Investigation Story](https://webkit.org/blog/6411/javascriptcore-csi-a-crash-site-investigation-story/) にいくつかprint debuggingのやり方が載っています。
 
 ## 具体的な貢献
 
 JavaScriptCore のようにフルタイムのコミッターがいてちゃんとメンテナンスされている言語処理系に対して、外部の人間が貢献できるような箇所を見つけるのは難しいと思う人もいるかもしれません。が、実際はそんなことはなく、頑張って探せばたくさん見つかります。
 
-### コードの読み方
-
-「どうやってでっかいコードベースを読むんですか？」という質問をもらったことが何度かあるので、まずはコードの読み方について。自分は基本的にはめちゃくちゃprint debugしてます。あとJavaScriptCoreではlldb、gdbなどのデバッガが割と動くのでめっちゃブレークポイント貼って変数の中身とかみてます。
-
-再現性のあるアプローチとしては、やはりそのプロジェクトでのprint debugのやり方を最初に見つけることが重要だと思います。特に、JSCではJITコンパイル後のコードからprintするための特別な関数があったりするので、そういうのを先に見つけておいたのは良かったと思います。FTL JITの中間表現レイヤでprintする方法がどうしてもわからなかったときはWebKit Slackで聞いたらAppleの人が教えてくれました[^3]。
-
-https://blog.jxck.io/entries/2024-03-26/chromium-contribution.html みたいな感じでどこかにまとめておくべきかとも思っています。
+それぞれの種類ごとに、実際のコミットへのリンクをいくつか載せています。
 
 ### バグ修正
 
-JavaScriptは仕様と実装が明確に分かれているので、仕様と実際の動作に違いがあったらそれはバグです。test262でコケているのを見つけたり、仕様や実装を睨むことで見つけることができます。修正が簡単なものは直しましたが、修正することによって大幅に性能が悪くなったり、そもそも修正するのが難しかったりして諦めたものも結構あります。
+JavaScriptは仕様と実装が明確に分かれているので、仕様と実際の動作に違いがあったらそれはバグです。test262でコケているのを見つけたり、仕様や実装を睨むことで見つけることができます。Bugzillaに記載されているものもありますが、簡単なものは大体修正されているので自分で見つける方が早いかもしれません。
 
-### test262
+修正が簡単なものは直しましたが、修正することによって大幅に性能が悪くなったり、そもそも修正するのが難しかったりして諦めたものも結構あります。
 
-test262の更新などが滞っているようだったので自分が手動で月に一回test262を更新しています。そこで目についた簡単なものはそのあとすぐにサクッと直したりもします。
+- [[JSC] RegExp quantifier should allow 2^53 - 1](https://commits.webkit.org/280953@main)
+- [[JSC] Object.assign shouldn't do batching when sources argument contains target object](https://commits.webkit.org/284486@main)
+
+### test262やUCDの更新
+
+test262[^5]やUCD(Unicode Character Database)の更新が滞っているようだったので適宜手動で更新しています。
+
+- [[JSC] Update test262 to 09/17/2024 version](https://commits.webkit.org/283705@main)
+- [[JSC] Update RegExp UCD to 16.0.0](https://commits.webkit.org/283741@main)
+
+### リファクタリング
+
+継続的にコミットしているとリファクタリングするべき箇所もわかってくるので、明らかにリファクタリングするべきときはしています。
+
+- [[JSC] Add JSAsyncFromSyncIterator](https://commits.webkit.org/283311@main)
+- [[JSC] Add JSRegExpStringIterator](https://commits.webkit.org/283542@main)
 
 ### パフォーマンス改善
 
-JITやGCのような多くのケースに適用できる最適化を行うのは難しいですが、特定のビルトイン関数の実行を速くすることは割と簡単にできます。最近はArrayのメソッドを高速化することに熱中しています。ナイーブなforループで実装されている配列のコピーを`memcpy`とか`memset`にしたり、C++の`std::reverse`とか使うだけで割と速くなります[^3]。配列の内部表現を理解する必要はあるけど、一回わかってしまえば色々な関数に対して似た方法が適用できるかなという印象。とはいえ、自分の手でブラウザ上で動く`memset`とか書くのはちょっと緊張しますね。
+JITの新しい最適化フェーズの導入ややGCアルゴリズムの改善のような多くのケースに適用できる最適化を行うのは難しいですが、特定のビルトイン関数の実行を速くすることは割と簡単にできます。最近はArrayのメソッドを高速化することに熱中しています。ナイーブなforループで実装されている配列のコピーを`memcpy`とか`memset`にしたり、C++の`std::reverse`とか使うだけで割と速くなります。
+
+配列の内部表現を理解する必要はあるけど、一回わかってしまえば色々な関数に対して似た方法が適用できるかなという印象。とはいえ、自分の手でブラウザ上で動く`memset`とか書くのはちょっと緊張しますね。
 
 DFG、FTL JITをいじるような最適化も一個進めているのですが、なかなか難しくてまだマージできていません。
+
+- [[JSC] Add fast path for array.concat()](https://commits.webkit.org/284060@main)
+- [[JSC] Implement Array.prototype.fill in C++](https://commits.webkit.org/287215@main)
+- [[JSC] Implement Array.prototype.toReversed in C++](https://commits.webkit.org/287431@main)
 
 ### Normative Changeの実装
 
 Normative Changeというのはざっくりいえば、仕様のリファクタリングを除くJavaScriptの仕様への変更のことです。新しい提案の追加もNormative Changeに含まれます。新しいものとか地味なものは実装されていないことがよくありますので、簡単にできそうなやつは結構やっています。デカいのだとIterator Helpersを半分くらい実装しました。あとは `Intl.DurationFormat` とか `Intl.Locale` の未実装だったNormative Changeを何個か実装しました。
 
+- [[JSC] Implement some/every/find from Iterator Helpers Proposal](https://commits.webkit.org/283677@main)
+- [[JSC] Limits values for Intl.DurationFormat and Temporal.Duration](https://commits.webkit.org/285131@main)
+
 ## 今後
 
-JSCへの貢献をやめる気はないですが、もう少し現実と向き合う時間を増やします。
+あんまり手が回っていなさそうなNormative Changeへの対応やビルトイン関数のパフォーマンス改善を中心に継続していこうと思っています。
+
+ただ、JSCへの貢献をやめる気はないですけど、もう少し現実と向き合う時間を増やすべきだと思っています。
 
 [^1]: やりたくないことへの現実逃避としてJavaScriptCoreに貢献しているきらいがある
-
 [^2]: 本当にどうでもいいが、筆者とConstellationさんは本名が良く似ている
-
 [^3]: 私が貢献を始めた当初はWebKit Slackはフリープランだったため90日で記録が消えていたが、最近有料プランになった。ありがとうAppleとSlack。
+[^4]: 特定のレジスタの中身をさくっと見れたりして大変便利。
+[^5]: [Web Developer Conference 2024](https://web-study.connpass.com/event/321711/) で[このへんの話](https://docs.google.com/presentation/d/1jGIYGRoyNxTO8P6thtp_u1NPv3RD_xyuRaTph9icpyM/edit?usp=sharing)をしました。
