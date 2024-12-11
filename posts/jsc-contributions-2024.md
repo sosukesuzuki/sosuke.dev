@@ -11,7 +11,7 @@ JavaScriptCore のソースコードは WebKit のリポジトリ https://github
 
 Pull Request を作るという活動をやめなければ当然いつかは 100 個に達するので別に偉業ということはないんですが、どちらかというと大して意味のないことをやめられなかったというネガティブな気持ちの方が強くあります。[^1]
 
-とはいえ、JavaScriptCorr に対して１年足らずで 100 個の Pull Request を作成してマージされる、というのはまあまあ珍しいことのようです。実際に、2024 年内にマージされた JavaScriptCore に対する PR の作者を円グラフで表すと、以下のようになっています。
+とはいえ、JavaScriptCore に対して１年足らずで 100 個の Pull Request を作成してマージされる、というのはまあまあ珍しいことのようです。実際に、2024 年内にマージされた JavaScriptCore に対する PR の作者を円グラフで表すと、以下のようになっています。
 
 <figure>
 <img width="643" height="400" style="border: 1px solid gray;" src="/img/jsc-contributions-2024.jpg"  />
