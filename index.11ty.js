@@ -47,7 +47,7 @@ module.exports = class {
             ${postWithYear.posts
               .map((post) => {
                 return `<h3 class="blog-post-item">
-              ${format(post.data.date, "yyyy-MM-dd")}: <a href=${post.url}>${
+              <a href=${post.url}><span class="date">${format(post.data.date, "MM-dd")}</span>${
                 post.data.title
               }</a>
             </h3>`;

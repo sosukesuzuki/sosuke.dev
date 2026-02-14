@@ -1,13 +1,14 @@
 .date-text {
-  color: gray;
+  color: var(--secondary-text-color);
+  font-size: 14px;
 }
 
 .post code {
   padding: 0.2em 0.4em;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9em;
   background-color: rgba(27, 31, 35, 0.05);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .post p {
@@ -19,15 +20,15 @@
 }
 
 .post ul li {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .post h2 {
-    font-size: 2rem;
+  font-size: 24px;
 }
 
 .post h3 {
-    font-size: 1.5rem;
+  font-size: 20px;
 }
 
 li ul {
@@ -36,7 +37,7 @@ li ul {
 }
 
 .post ol li {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .post .shiki {
@@ -53,8 +54,8 @@ figure {
   text-align: center;
 }
 figcaption {
-  color: grey;
-  font: 15px arial;
+  color: var(--secondary-text-color);
+  font-size: 14px;
 }
 
 .post table {
@@ -73,12 +74,12 @@ figcaption {
 
 .post table th,
 .post table td {
-  padding: 6px 13px;
-  border: 1px solid black;
+  padding: 8px 14px;
+  border: 1px solid var(--border-color);
 }
 
 .post table tr {
-  border-top: 1px solid black;
+  border-top: 1px solid var(--border-color);
 }
 
 .post table img {
